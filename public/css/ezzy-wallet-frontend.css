@@ -1,0 +1,3177 @@
+/**
+ * eZZY Wallet Frontend Styles
+ * Modern E-Wallet UI Design
+ *
+ * @package EzzyWallet
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   CSS ISOLATION - Prevent external style inheritance
+   Forces plugin to keep its own styles regardless of
+   themes, plugins, or Elementor global settings
+   ========================================================================== */
+
+.ezzy-wallet-landing,
+.ezzy-wallet-landing *,
+.ezzy-wallet-landing *::before,
+.ezzy-wallet-landing *::after,
+.ezzy-wallet-dashboard-placeholder,
+.ezzy-wallet-dashboard-placeholder *,
+.ezzy-wallet-maintenance,
+.ezzy-wallet-maintenance *,
+.ezzy-auth-container,
+.ezzy-auth-container *,
+.ezzy-auth-container *::before,
+.ezzy-auth-container *::after {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-style: normal !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    font-variant: normal !important;
+    -webkit-text-stroke: 0 !important;
+    text-stroke: 0 !important;
+}
+
+/* Force headings in auth forms */
+.ezzy-wallet-landing h1,
+.ezzy-wallet-landing h2,
+.ezzy-wallet-landing h3,
+.ezzy-auth-container h1,
+.ezzy-auth-container h2,
+.ezzy-auth-container h3 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    text-transform: none !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Force inputs in auth forms */
+.ezzy-auth-container input,
+.ezzy-auth-container textarea,
+.ezzy-auth-container select,
+.ezzy-auth-container button {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 15px !important;
+    letter-spacing: normal !important;
+}
+
+/* Override Elementor styles */
+.ezzy-wallet-landing .elementor *,
+.ezzy-auth-container .elementor * {
+    font-family: inherit !important;
+}
+
+/* ==========================================================================
+   CSS Variables
+   ========================================================================== */
+
+:root {
+    --ezzy-primary: #3b82f6;
+    --ezzy-primary-dark: #1d4ed8;
+    --ezzy-secondary: #8b5cf6;
+    --ezzy-accent: #06b6d4;
+    --ezzy-success: #10b981;
+    --ezzy-error: #ef4444;
+    --ezzy-warning: #f59e0b;
+    --ezzy-gold: #fbbf24;
+    --ezzy-pink: #ec4899;
+    --ezzy-purple: #a855f7;
+    --ezzy-text: #1e293b;
+    --ezzy-text-light: #64748b;
+    --ezzy-text-muted: #94a3b8;
+    --ezzy-border: #e2e8f0;
+    --ezzy-bg: #f8fafc;
+    --ezzy-bg-light: #f1f5f9;
+    --ezzy-white: #ffffff;
+    --ezzy-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --ezzy-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --ezzy-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --ezzy-radius: 16px;
+    --ezzy-radius-lg: 24px;
+    --ezzy-radius-sm: 8px;
+    --ezzy-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+.ezzy-wallet-landing,
+.ezzy-wallet-dashboard-placeholder,
+.ezzy-wallet-maintenance {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    color: var(--ezzy-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+.ezzy-wallet-landing *,
+.ezzy-wallet-dashboard-placeholder *,
+.ezzy-wallet-maintenance * {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Hero Section - Gradient Background
+   ========================================================================== */
+
+.ezzy-hero-section {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 25%, #f0fdf4 50%, #a7f3d0 75%, #6ee7b7 100%);
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Animated Background Shapes */
+.ezzy-bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.6;
+    animation: float 20s ease-in-out infinite;
+}
+
+.ezzy-bg-shape-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.ezzy-bg-shape-2 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #34d399, #10b981);
+    bottom: -150px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+.ezzy-bg-shape-3 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    top: 50%;
+    right: 30%;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(30px, -30px) rotate(5deg);
+    }
+    50% {
+        transform: translate(-20px, 20px) rotate(-5deg);
+    }
+    75% {
+        transform: translate(20px, 10px) rotate(3deg);
+    }
+}
+
+.ezzy-hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   Logo Styling - Matching the eZZY Wallet Brand
+   ========================================================================== */
+
+.ezzy-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 40px;
+}
+
+.ezzy-logo-main {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.ezzy-logo-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -2px;
+}
+
+.ezzy-logo-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 6px rgba(59, 130, 246, 0.3));
+}
+
+.ezzy-logo-text {
+    display: flex;
+    align-items: baseline;
+    font-size: 36px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -0.02em;
+}
+
+.ezzy-logo-zzy {
+    color: var(--ezzy-primary);
+}
+
+.ezzy-logo-wallet {
+    color: var(--ezzy-primary);
+    margin-left: 6px;
+}
+
+.ezzy-logo-tagline {
+    font-size: 13px;
+    color: var(--ezzy-text-light);
+    font-style: italic;
+    font-weight: 400;
+    margin: -5px 0 0 0;
+    padding-left: 152px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Hero Content
+   ========================================================================== */
+
+.ezzy-hero-content {
+    max-width: 540px;
+}
+
+.ezzy-hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--ezzy-text);
+    margin: 0 0 20px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.ezzy-hero-subtitle {
+    font-size: 17px;
+    color: var(--ezzy-text-light);
+    margin: 0 0 40px;
+    line-height: 1.7;
+}
+
+.ezzy-hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ezzy-hero-footer {
+    font-size: 13px;
+    color: var(--ezzy-primary);
+    margin-top: 60px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Buttons - Modern Pill Style
+   ========================================================================== */
+
+.ezzy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 36px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--ezzy-transition);
+    text-decoration: none;
+    min-width: 170px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ezzy-btn-primary {
+    background: linear-gradient(135deg, var(--ezzy-primary) 0%, var(--ezzy-primary-dark) 100%);
+    color: var(--ezzy-white);
+    border-color: var(--ezzy-primary);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+.ezzy-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(59, 130, 246, 0.45);
+}
+
+.ezzy-btn-secondary {
+    background: var(--ezzy-white);
+    color: var(--ezzy-text);
+    border-color: var(--ezzy-border);
+    box-shadow: var(--ezzy-shadow);
+}
+
+.ezzy-btn-secondary:hover {
+    border-color: var(--ezzy-primary);
+    color: var(--ezzy-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--ezzy-shadow-lg);
+}
+
+.ezzy-btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--ezzy-primary) 0%, var(--ezzy-primary-dark) 100%);
+    color: var(--ezzy-white);
+    border-color: var(--ezzy-primary);
+    padding: 18px 36px;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+.ezzy-btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(59, 130, 246, 0.45);
+}
+
+/* ==========================================================================
+   Hero Visual - 3D Wallet Illustration
+   ========================================================================== */
+
+.ezzy-hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ezzy-wallet-illustration {
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+
+/* Phone */
+.ezzy-phone {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 180px;
+    height: 320px;
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    border-radius: 30px;
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    transform: perspective(800px) rotateY(-15deg) rotateX(5deg);
+    z-index: 3;
+    animation: phoneFloat 6s ease-in-out infinite;
+}
+
+@keyframes phoneFloat {
+    0%, 100% { transform: perspective(800px) rotateY(-15deg) rotateX(5deg) translateY(0); }
+    50% { transform: perspective(800px) rotateY(-15deg) rotateX(5deg) translateY(-15px); }
+}
+
+.ezzy-phone-screen {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: linear-gradient(180deg, #1e3a5f 0%, #2d5a87 50%, #7dd3fc 100%);
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.ezzy-phone-header {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+}
+
+.ezzy-phone-notch {
+    width: 60px;
+    height: 20px;
+    background: #1e293b;
+    border-radius: 10px;
+}
+
+.ezzy-phone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.ezzy-phone-coin {
+    width: 80px;
+    height: 80px;
+    animation: coinSpin 4s ease-in-out infinite;
+}
+
+@keyframes coinSpin {
+    0%, 100% { transform: rotateY(0deg); }
+    50% { transform: rotateY(180deg); }
+}
+
+.ezzy-phone-waves {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50% 50% 0 0;
+}
+
+.wave-1 { bottom: 0; animation: wave 3s ease-in-out infinite; }
+.wave-2 { bottom: 15px; opacity: 0.6; animation: wave 3s ease-in-out infinite 0.3s; }
+.wave-3 { bottom: 30px; opacity: 0.3; animation: wave 3s ease-in-out infinite 0.6s; }
+
+@keyframes wave {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.1); }
+}
+
+/* Physical Wallet */
+.ezzy-physical-wallet {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    width: 200px;
+    height: 130px;
+    z-index: 2;
+    animation: walletFloat 5s ease-in-out infinite 1s;
+}
+
+@keyframes walletFloat {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(-3deg); }
+}
+
+.ezzy-wallet-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #ec4899, #db2777);
+    border-radius: 12px;
+    box-shadow: 
+        0 20px 40px rgba(219, 39, 119, 0.3),
+        inset 0 -5px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.ezzy-wallet-flap {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    right: 10px;
+    height: 30px;
+    background: linear-gradient(145deg, #f472b6, #ec4899);
+    border-radius: 8px 8px 0 0;
+    z-index: -1;
+}
+
+.ezzy-wallet-button {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: #d1d5db;
+    border-radius: 50%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ezzy-credit-card {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    width: 120px;
+    height: 75px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: rotate(-8deg);
+}
+
+.ezzy-card-chip {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    width: 25px;
+    height: 20px;
+    background: linear-gradient(145deg, #fbbf24, #f59e0b);
+    border-radius: 4px;
+}
+
+.ezzy-card-lines {
+    position: absolute;
+    bottom: 15px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-line {
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+}
+
+/* Floating Coins */
+.ezzy-floating-coins {
+    position: absolute;
+    bottom: 80px;
+    left: 30px;
+}
+
+.ezzy-coin {
+    position: absolute;
+    filter: drop-shadow(0 8px 16px rgba(217, 119, 6, 0.4));
+}
+
+.ezzy-coin-1 {
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    animation: coinBounce 2s ease-in-out infinite;
+}
+
+.ezzy-coin-2 {
+    width: 45px;
+    height: 45px;
+    bottom: 35px;
+    left: 25px;
+    animation: coinBounce 2s ease-in-out infinite 0.3s;
+}
+
+.ezzy-coin-3 {
+    width: 40px;
+    height: 40px;
+    bottom: 65px;
+    left: 10px;
+    animation: coinBounce 2s ease-in-out infinite 0.6s;
+}
+
+@keyframes coinBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Receipt */
+.ezzy-receipt {
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    width: 80px;
+    padding: 15px 10px;
+    background: var(--ezzy-white);
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    animation: receiptFloat 4s ease-in-out infinite 2s;
+}
+
+@keyframes receiptFloat {
+    0%, 100% { transform: translateY(0) rotate(3deg); }
+    50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+.receipt-line {
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin-bottom: 6px;
+}
+
+.receipt-line.short {
+    width: 60%;
+}
+
+.receipt-qr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    width: 30px;
+    margin: 10px auto;
+}
+
+.qr-square {
+    width: 12px;
+    height: 12px;
+    background: var(--ezzy-text);
+    border-radius: 2px;
+}
+
+.receipt-text {
+    text-align: center;
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--ezzy-text);
+    margin: 8px 0 0;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Forms Section
+   ========================================================================== */
+
+.ezzy-forms-section {
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #f0fdf4 0%, var(--ezzy-bg) 100%);
+}
+
+.ezzy-forms-container {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.ezzy-form-wrapper {
+    display: none;
+}
+
+.ezzy-form-card {
+    background: var(--ezzy-white);
+    border-radius: var(--ezzy-radius-lg);
+    box-shadow: var(--ezzy-shadow-xl);
+    padding: 48px 40px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.ezzy-form-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.ezzy-form-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    margin-bottom: 20px;
+}
+
+.ezzy-form-logo-icon {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -1px;
+}
+
+.ezzy-form-logo-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
+}
+
+.ezzy-form-logo-text {
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ezzy-primary);
+    letter-spacing: -0.01em;
+}
+
+.ezzy-form-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ezzy-text);
+    margin: 0 0 8px;
+}
+
+.ezzy-form-header p {
+    font-size: 15px;
+    color: var(--ezzy-text-light);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Form Error Message
+   ========================================================================== */
+
+.ezzy-form-error {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border: 1px solid #fecaca;
+    border-radius: var(--ezzy-radius-sm);
+    margin-bottom: 28px;
+    color: var(--ezzy-error);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ezzy-form-error svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Form Groups
+   ========================================================================== */
+
+.ezzy-form-group {
+    margin-bottom: 22px;
+}
+
+.ezzy-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.ezzy-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ezzy-text);
+    margin-bottom: 10px;
+}
+
+.ezzy-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ezzy-input-wrapper > svg {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    color: var(--ezzy-text-muted);
+    pointer-events: none;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-input-wrapper input {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    font-size: 15px;
+    border: 2px solid var(--ezzy-border);
+    border-radius: var(--ezzy-radius);
+    background: var(--ezzy-bg-light);
+    color: var(--ezzy-text);
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-input-wrapper input:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+    background: var(--ezzy-white);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.ezzy-input-wrapper input:focus + svg,
+.ezzy-input-wrapper:focus-within > svg {
+    color: var(--ezzy-primary);
+}
+
+.ezzy-input-wrapper input::placeholder {
+    color: var(--ezzy-text-muted);
+}
+
+/* Password Toggle */
+.ezzy-password-toggle {
+    position: absolute;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--ezzy-text-muted);
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-password-toggle:hover {
+    color: var(--ezzy-primary);
+}
+
+.ezzy-password-toggle svg {
+    position: static;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+/* Input States */
+.ezzy-input-wrapper.ezzy-input-error input {
+    border-color: var(--ezzy-error);
+    background: #fef2f2;
+}
+
+.ezzy-input-wrapper.ezzy-input-success input {
+    border-color: var(--ezzy-success);
+    background: #f0fdf4;
+}
+
+/* Input Hint */
+.ezzy-input-hint {
+    font-size: 12px;
+    color: var(--ezzy-text-muted);
+    margin-top: 8px;
+    padding-left: 4px;
+}
+
+.ezzy-input-hint.ezzy-hint-success {
+    color: var(--ezzy-success);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Form Footer
+   ========================================================================== */
+
+.ezzy-form-footer {
+    text-align: center;
+    margin-top: 28px;
+    padding-top: 28px;
+    border-top: 1px solid var(--ezzy-border);
+}
+
+.ezzy-form-footer p {
+    font-size: 14px;
+    color: var(--ezzy-text-light);
+    margin: 0;
+}
+
+.ezzy-form-switch {
+    color: var(--ezzy-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-form-switch:hover {
+    color: var(--ezzy-primary-dark);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Features Section
+   ========================================================================== */
+
+.ezzy-features-section {
+    padding: 80px 20px;
+    background: var(--ezzy-white);
+}
+
+.ezzy-features-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.ezzy-feature {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--ezzy-bg-light);
+    border-radius: var(--ezzy-radius-lg);
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-feature:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ezzy-shadow-lg);
+}
+
+.ezzy-feature-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--ezzy-primary) 0%, var(--ezzy-secondary) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.ezzy-feature-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--ezzy-white);
+}
+
+.ezzy-feature h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ezzy-text);
+    margin: 0 0 12px;
+}
+
+.ezzy-feature p {
+    font-size: 15px;
+    color: var(--ezzy-text-light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Dashboard Placeholder
+   ========================================================================== */
+
+.ezzy-wallet-dashboard-placeholder {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #c7d2fe 0%, #a7f3d0 50%, #6ee7b7 100%);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ezzy-wallet-dashboard-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 50%;
+    filter: blur(80px);
+    top: -100px;
+    left: -100px;
+}
+
+.ezzy-wallet-dashboard-placeholder::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(52, 211, 153, 0.3);
+    border-radius: 50%;
+    filter: blur(80px);
+    bottom: -150px;
+    right: -100px;
+}
+
+.ezzy-dashboard-container {
+    max-width: 480px;
+    background: var(--ezzy-white);
+    border-radius: var(--ezzy-radius-lg);
+    padding: 56px 48px;
+    text-align: center;
+    box-shadow: var(--ezzy-shadow-xl);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.ezzy-welcome-icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--ezzy-primary) 0%, var(--ezzy-secondary) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+}
+
+.ezzy-welcome-icon svg {
+    width: 44px;
+    height: 44px;
+    color: var(--ezzy-white);
+}
+
+.ezzy-dashboard-container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ezzy-text);
+    margin: 0 0 12px;
+}
+
+.ezzy-user-greeting {
+    font-size: 20px;
+    color: var(--ezzy-primary);
+    font-weight: 600;
+    margin: 0 0 20px;
+}
+
+.ezzy-placeholder-message {
+    font-size: 15px;
+    color: var(--ezzy-text-light);
+    margin: 0 0 36px;
+    line-height: 1.7;
+}
+
+.ezzy-logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ezzy-error);
+    background: #fef2f2;
+    border: 2px solid #fecaca;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-logout-btn:hover {
+    background: var(--ezzy-error);
+    color: var(--ezzy-white);
+    border-color: var(--ezzy-error);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Maintenance Mode
+   ========================================================================== */
+
+.ezzy-wallet-maintenance {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 50%, #f5d0fe 100%);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ezzy-maintenance-container {
+    max-width: 480px;
+    background: var(--ezzy-white);
+    border-radius: var(--ezzy-radius-lg);
+    padding: 56px 48px;
+    text-align: center;
+    box-shadow: var(--ezzy-shadow-xl);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.ezzy-maintenance-icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #fef2f2, #fee2e2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+}
+
+.ezzy-maintenance-icon svg {
+    width: 44px;
+    height: 44px;
+    color: var(--ezzy-error);
+}
+
+.ezzy-maintenance-container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ezzy-text);
+    margin: 0 0 16px;
+}
+
+.ezzy-maintenance-container p {
+    font-size: 16px;
+    color: var(--ezzy-text-light);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+    .ezzy-hero-container {
+        gap: 60px;
+    }
+
+    .ezzy-wallet-illustration {
+        width: 380px;
+        height: 380px;
+    }
+
+    .ezzy-phone {
+        width: 150px;
+        height: 270px;
+    }
+
+    .ezzy-physical-wallet {
+        width: 170px;
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .ezzy-hero-section {
+        padding: 50px 30px;
+    }
+
+    .ezzy-hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .ezzy-hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .ezzy-logo {
+        align-items: center;
+    }
+
+    .ezzy-logo-tagline {
+        padding-left: 106px;
+    }
+
+    .ezzy-hero-buttons {
+        justify-content: center;
+    }
+
+    .ezzy-hero-visual {
+        order: -1;
+    }
+
+    .ezzy-wallet-illustration {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ezzy-hero-section {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .ezzy-hero-title {
+        font-size: 40px;
+    }
+
+    .ezzy-hero-subtitle {
+        font-size: 15px;
+    }
+
+    .ezzy-hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ezzy-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .ezzy-wallet-illustration {
+        width: 300px;
+        height: 300px;
+    }
+
+    .ezzy-phone {
+        width: 130px;
+        height: 230px;
+        right: 10px;
+    }
+
+    .ezzy-physical-wallet {
+        width: 150px;
+        height: 95px;
+        right: 40px;
+        bottom: 30px;
+    }
+
+    .ezzy-form-card {
+        padding: 36px 28px;
+    }
+
+    .ezzy-features-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .ezzy-feature {
+        padding: 30px 24px;
+    }
+
+    .ezzy-dashboard-container,
+    .ezzy-maintenance-container {
+        padding: 40px 28px;
+        margin: 0 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ezzy-hero-title {
+        font-size: 32px;
+    }
+
+    .ezzy-logo-text {
+        font-size: 28px;
+    }
+
+    .ezzy-logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .ezzy-form-header h2 {
+        font-size: 26px;
+    }
+
+    .ezzy-input-wrapper input {
+        padding: 14px 14px 14px 46px;
+        font-size: 14px;
+    }
+
+    .ezzy-wallet-illustration {
+        width: 260px;
+        height: 260px;
+    }
+
+    .ezzy-phone {
+        width: 110px;
+        height: 195px;
+    }
+
+    .ezzy-physical-wallet {
+        width: 130px;
+        height: 82px;
+    }
+
+    .ezzy-floating-coins {
+        left: 15px;
+    }
+
+    .ezzy-receipt {
+        left: 40px;
+        width: 65px;
+        padding: 12px 8px;
+    }
+}
+
+/* ==========================================================================
+   Enhanced Signup Form Styles
+   ========================================================================== */
+
+/* Signup form card - allow scrolling for longer form */
+.ezzy-form-card-signup {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Form row for side-by-side fields */
+.ezzy-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    .ezzy-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* Required field indicator */
+.ezzy-form-group label .required {
+    color: var(--ezzy-error);
+    margin-left: 2px;
+}
+
+/* Select wrapper */
+.ezzy-select-wrapper {
+    position: relative;
+}
+
+.ezzy-select-wrapper select {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    font-size: 15px;
+    border: 2px solid var(--ezzy-border);
+    border-radius: var(--ezzy-radius);
+    background: var(--ezzy-bg-light);
+    color: var(--ezzy-text);
+    transition: var(--ezzy-transition);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+    padding-right: 45px;
+}
+
+.ezzy-select-wrapper select:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+    background-color: var(--ezzy-white);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.ezzy-select-wrapper select option {
+    padding: 10px;
+}
+
+/* Date input styling */
+.ezzy-input-wrapper input[type="date"] {
+    padding-right: 16px;
+}
+
+.ezzy-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Checkbox styling */
+.ezzy-form-checkbox {
+    margin-top: 8px;
+}
+
+.ezzy-checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    gap: 12px;
+    line-height: 1.5;
+}
+
+.ezzy-checkbox-wrapper input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.ezzy-checkbox-custom {
+    position: relative;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    background: #ffffff;
+    border: 2px solid #94a3b8;
+    border-radius: 4px;
+    transition: var(--ezzy-transition);
+    margin-top: 0;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom {
+    border-color: var(--ezzy-primary);
+    background: #f8fafc;
+}
+
+.ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom {
+    background: var(--ezzy-primary);
+    border-color: var(--ezzy-primary);
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+}
+
+.ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    border-color: var(--ezzy-primary);
+}
+
+.ezzy-checkbox-label {
+    font-size: 14px;
+    color: var(--ezzy-text);
+    font-weight: 400;
+    line-height: 1.6;
+    padding-top: 2px;
+}
+
+.ezzy-checkbox-label a {
+    color: var(--ezzy-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.ezzy-checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+.ezzy-checkbox-label .required {
+    color: var(--ezzy-error);
+    margin-left: 2px;
+}
+
+/* =====================================================
+   FORM FIELDS ISOLATION - Prevents theme/plugin overrides
+   ===================================================== */
+
+/* Input wrapper - flex container for icon + input */
+html body .ezzy-wallet-container .ezzy-input-wrapper,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Icon positioning - left side, vertically centered */
+html body .ezzy-wallet-container .ezzy-input-wrapper > svg:first-of-type,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper > svg:first-of-type {
+    position: absolute !important;
+    left: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    color: #94a3b8 !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+/* Input field - proper padding for icon */
+html body .ezzy-wallet-container .ezzy-input-wrapper input,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input,
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="text"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="text"],
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="email"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="email"],
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="password"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="password"],
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="tel"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="tel"],
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="date"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="date"] {
+    width: 100% !important;
+    height: auto !important;
+    padding: 14px 16px 14px 44px !important;
+    font-size: 14px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    line-height: 1.5 !important;
+    color: #1e293b !important;
+    background-color: #f8fafc !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    margin: 0 !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Placeholder styling */
+html body .ezzy-wallet-container .ezzy-input-wrapper input::placeholder,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+    font-size: 14px !important;
+}
+
+/* Focus state */
+html body .ezzy-wallet-container .ezzy-input-wrapper input:focus,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input:focus {
+    border-color: #3b82f6 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12) !important;
+    outline: none !important;
+}
+
+/* Focus state - icon color change */
+html body .ezzy-wallet-container .ezzy-input-wrapper:focus-within > svg:first-of-type,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper:focus-within > svg:first-of-type {
+    color: #3b82f6 !important;
+}
+
+/* Select dropdown styling */
+html body .ezzy-wallet-container .ezzy-input-wrapper select,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper select,
+html body .ezzy-wallet-container .ezzy-select-wrapper select,
+html body .ezzy-auth-wrapper .ezzy-select-wrapper select {
+    width: 100% !important;
+    height: auto !important;
+    padding: 14px 40px 14px 44px !important;
+    font-size: 14px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    line-height: 1.5 !important;
+    color: #1e293b !important;
+    background-color: #f8fafc !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    background-size: 18px !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+}
+
+/* Select focus state */
+html body .ezzy-wallet-container .ezzy-input-wrapper select:focus,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper select:focus {
+    border-color: #3b82f6 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12) !important;
+    outline: none !important;
+}
+
+/* Password toggle button - positioned right */
+html body .ezzy-wallet-container .ezzy-password-toggle,
+html body .ezzy-auth-wrapper .ezzy-password-toggle {
+    position: absolute !important;
+    right: 4px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: #2dd4bf !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 3 !important;
+    transition: background-color 0.2s ease !important;
+}
+
+html body .ezzy-wallet-container .ezzy-password-toggle:hover,
+html body .ezzy-auth-wrapper .ezzy-password-toggle:hover {
+    background: #14b8a6 !important;
+}
+
+html body .ezzy-wallet-container .ezzy-password-toggle svg,
+html body .ezzy-auth-wrapper .ezzy-password-toggle svg {
+    position: static !important;
+    width: 20px !important;
+    height: 20px !important;
+    color: #ffffff !important;
+    transform: none !important;
+    pointer-events: none !important;
+}
+
+/* Date input - adjust for browser controls */
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="date"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="date"] {
+    padding-right: 16px !important;
+}
+
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer !important;
+    opacity: 0.6 !important;
+    padding: 4px !important;
+}
+
+html body .ezzy-wallet-container .ezzy-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator:hover,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1 !important;
+}
+
+/* =====================================================
+   CHECKBOX ISOLATION - Prevents theme/plugin overrides
+   ===================================================== */
+
+/* Checkbox container */
+html body .ezzy-wallet-container .ezzy-form-checkbox,
+html body .ezzy-auth-wrapper .ezzy-form-checkbox {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+html body .ezzy-wallet-container .ezzy-checkbox-wrapper,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    cursor: pointer !important;
+    line-height: 1.5 !important;
+    position: relative !important;
+}
+
+/* Hide native checkbox */
+html body .ezzy-wallet-container .ezzy-checkbox-wrapper input[type="checkbox"],
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Custom checkbox square */
+html body .ezzy-wallet-container .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-custom {
+    position: relative !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
+    background: #ffffff !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Checkbox hover state */
+html body .ezzy-wallet-container .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom {
+    border-color: #3b82f6 !important;
+    background: #f8fafc !important;
+}
+
+/* Checkbox checked state */
+html body .ezzy-wallet-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom {
+    background: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Checkmark */
+html body .ezzy-wallet-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    left: 6px !important;
+    top: 2px !important;
+    width: 6px !important;
+    height: 11px !important;
+    border: solid #ffffff !important;
+    border-width: 0 2.5px 2.5px 0 !important;
+    transform: rotate(45deg) !important;
+    box-sizing: border-box !important;
+}
+
+/* Checkbox focus state */
+html body .ezzy-wallet-container .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Checkbox label text */
+html body .ezzy-wallet-container .ezzy-checkbox-label,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label {
+    font-size: 14px !important;
+    color: #475569 !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    padding-top: 1px !important;
+    margin: 0 !important;
+}
+
+html body .ezzy-wallet-container .ezzy-checkbox-label a,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label a {
+    color: #3b82f6 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+
+html body .ezzy-wallet-container .ezzy-checkbox-label a:hover,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label a:hover {
+    text-decoration: underline !important;
+}
+
+html body .ezzy-wallet-container .ezzy-checkbox-label .required,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label .required {
+    color: #ef4444 !important;
+    margin-left: 2px !important;
+}
+
+/* =====================================================
+   RESPONSIVE ADJUSTMENTS
+   ===================================================== */
+
+@media (max-width: 768px) {
+    html body .ezzy-wallet-container .ezzy-input-wrapper input,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper input,
+    html body .ezzy-wallet-container .ezzy-input-wrapper select,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper select {
+        padding: 12px 14px 12px 40px !important;
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+
+    html body .ezzy-wallet-container .ezzy-input-wrapper > svg:first-of-type,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper > svg:first-of-type {
+        left: 12px !important;
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        min-height: 16px !important;
+        max-width: 16px !important;
+        max-height: 16px !important;
+    }
+
+    html body .ezzy-wallet-container .ezzy-password-toggle,
+    html body .ezzy-auth-wrapper .ezzy-password-toggle {
+        width: 36px !important;
+        height: 36px !important;
+        right: 4px !important;
+    }
+
+    html body .ezzy-wallet-container .ezzy-checkbox-custom,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-custom {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+    }
+
+    html body .ezzy-wallet-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after {
+        left: 5px !important;
+        top: 1px !important;
+        width: 5px !important;
+        height: 10px !important;
+    }
+
+    html body .ezzy-wallet-container .ezzy-checkbox-label,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-label {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html body .ezzy-wallet-container .ezzy-input-wrapper input,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper input,
+    html body .ezzy-wallet-container .ezzy-input-wrapper select,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper select {
+        padding: 11px 12px 11px 38px !important;
+    }
+
+    html body .ezzy-wallet-container .ezzy-input-wrapper > svg:first-of-type,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper > svg:first-of-type {
+        left: 10px !important;
+    }
+
+    html body .ezzy-wallet-container .ezzy-checkbox-wrapper,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper {
+        gap: 10px !important;
+    }
+}
+
+
+/* ==========================================================================
+   MASTER CSS ISOLATION - COMPLETE PLUGIN PROTECTION
+   Prevents ALL theme, Elementor, and plugin style overrides
+   This section MUST remain at the end of the file
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------
+   GLOBAL RESET FOR ALL EZZY ELEMENTS
+   --------------------------------------------------------------------- */
+
+html body .ezzy-wallet-landing,
+html body .ezzy-wallet-landing *,
+html body .ezzy-wallet-landing *::before,
+html body .ezzy-wallet-landing *::after,
+html body .ezzy-auth-container,
+html body .ezzy-auth-container *,
+html body .ezzy-auth-container *::before,
+html body .ezzy-auth-container *::after,
+html body .ezzy-wallet-container,
+html body .ezzy-wallet-container *,
+html body .ezzy-wallet-container *::before,
+html body .ezzy-wallet-container *::after,
+html body .ezzy-auth-wrapper,
+html body .ezzy-auth-wrapper *,
+html body .ezzy-auth-wrapper *::before,
+html body .ezzy-auth-wrapper *::after {
+    box-sizing: border-box !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* ---------------------------------------------------------------------
+   FORM CARD ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-form-card,
+html body .ezzy-wallet-landing .ezzy-form-card,
+html body .ezzy-auth-wrapper .ezzy-form-card {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+    border: none !important;
+    max-width: 440px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* ---------------------------------------------------------------------
+   FORM HEADER ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-form-header,
+html body .ezzy-auth-wrapper .ezzy-form-header {
+    text-align: center !important;
+    margin-bottom: 32px !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-header h2,
+html body .ezzy-auth-wrapper .ezzy-form-header h2 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    text-transform: none !important;
+    letter-spacing: -0.02em !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-header p,
+html body .ezzy-auth-wrapper .ezzy-form-header p {
+    font-size: 15px !important;
+    color: #64748b !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.5 !important;
+}
+
+/* ---------------------------------------------------------------------
+   FORM LABELS ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-form-group label,
+html body .ezzy-auth-wrapper .ezzy-form-group label,
+html body .ezzy-wallet-container .ezzy-form-group label {
+    display: block !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    margin-bottom: 10px !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-group label .required,
+html body .ezzy-auth-wrapper .ezzy-form-group label .required {
+    color: #ef4444 !important;
+    margin-left: 2px !important;
+}
+
+/* ---------------------------------------------------------------------
+   INPUT WRAPPER & ICON - COMPLETE ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-input-wrapper,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper,
+html body .ezzy-wallet-container .ezzy-input-wrapper,
+html body .ezzy-wallet-landing .ezzy-input-wrapper {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Input field icon - LEFT positioned */
+html body .ezzy-auth-container .ezzy-input-wrapper > svg:first-of-type,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper > svg:first-of-type,
+html body .ezzy-wallet-container .ezzy-input-wrapper > svg:first-of-type,
+html body .ezzy-wallet-landing .ezzy-input-wrapper > svg:first-of-type {
+    position: absolute !important;
+    left: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    color: #94a3b8 !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ---------------------------------------------------------------------
+   ALL INPUT TYPES - COMPLETE ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-input-wrapper input,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input,
+html body .ezzy-wallet-container .ezzy-input-wrapper input,
+html body .ezzy-wallet-landing .ezzy-input-wrapper input,
+html body .ezzy-auth-container .ezzy-input-wrapper input[type="text"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="text"],
+html body .ezzy-auth-container .ezzy-input-wrapper input[type="email"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="email"],
+html body .ezzy-auth-container .ezzy-input-wrapper input[type="password"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="password"],
+html body .ezzy-auth-container .ezzy-input-wrapper input[type="tel"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="tel"],
+html body .ezzy-auth-container .ezzy-input-wrapper input[type="date"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="date"],
+html body .ezzy-auth-container .ezzy-input-wrapper input[type="number"],
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input[type="number"] {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 50px !important;
+    padding: 14px 16px 14px 44px !important;
+    font-size: 14px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #1e293b !important;
+    background-color: #f8fafc !important;
+    background-image: none !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    margin: 0 !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+/* Input placeholder */
+html body .ezzy-auth-container .ezzy-input-wrapper input::placeholder,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input::placeholder,
+html body .ezzy-wallet-container .ezzy-input-wrapper input::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+/* Input focus state */
+html body .ezzy-auth-container .ezzy-input-wrapper input:focus,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper input:focus,
+html body .ezzy-wallet-container .ezzy-input-wrapper input:focus {
+    border-color: #3b82f6 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12) !important;
+    outline: none !important;
+}
+
+/* Icon color on focus */
+html body .ezzy-auth-container .ezzy-input-wrapper:focus-within > svg:first-of-type,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper:focus-within > svg:first-of-type {
+    color: #3b82f6 !important;
+}
+
+/* ---------------------------------------------------------------------
+   SELECT DROPDOWN - COMPLETE ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-input-wrapper select,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper select,
+html body .ezzy-wallet-container .ezzy-input-wrapper select,
+html body .ezzy-auth-container .ezzy-select-wrapper select,
+html body .ezzy-auth-wrapper .ezzy-select-wrapper select {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 50px !important;
+    padding: 14px 40px 14px 44px !important;
+    font-size: 14px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #1e293b !important;
+    background-color: #f8fafc !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    background-size: 18px !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+}
+
+html body .ezzy-auth-container .ezzy-input-wrapper select:focus,
+html body .ezzy-auth-wrapper .ezzy-input-wrapper select:focus {
+    border-color: #3b82f6 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12) !important;
+}
+
+/* ---------------------------------------------------------------------
+   PASSWORD TOGGLE BUTTON - COMPLETE ISOLATION (fixes the teal button issue)
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-password-toggle,
+html body .ezzy-auth-wrapper .ezzy-password-toggle,
+html body .ezzy-wallet-container .ezzy-password-toggle,
+html body .ezzy-wallet-landing .ezzy-password-toggle {
+    position: absolute !important;
+    right: 4px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    max-width: 42px !important;
+    max-height: 42px !important;
+    background: #2dd4bf !important;
+    background-image: none !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 3 !important;
+    transition: background-color 0.2s ease !important;
+    box-shadow: none !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    line-height: 1 !important;
+    font-size: 0 !important;
+    overflow: hidden !important;
+}
+
+html body .ezzy-auth-container .ezzy-password-toggle:hover,
+html body .ezzy-auth-wrapper .ezzy-password-toggle:hover,
+html body .ezzy-wallet-container .ezzy-password-toggle:hover {
+    background: #14b8a6 !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: translateY(-50%) !important;
+}
+
+html body .ezzy-auth-container .ezzy-password-toggle:focus,
+html body .ezzy-auth-wrapper .ezzy-password-toggle:focus {
+    background: #14b8a6 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+html body .ezzy-auth-container .ezzy-password-toggle:active,
+html body .ezzy-auth-wrapper .ezzy-password-toggle:active {
+    background: #0d9488 !important;
+    transform: translateY(-50%) !important;
+}
+
+/* Password toggle SVG icons */
+html body .ezzy-auth-container .ezzy-password-toggle svg,
+html body .ezzy-auth-wrapper .ezzy-password-toggle svg,
+html body .ezzy-wallet-container .ezzy-password-toggle svg {
+    position: static !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    color: #ffffff !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    transform: none !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+}
+
+/* ---------------------------------------------------------------------
+   SUBMIT BUTTON - COMPLETE ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-btn,
+html body .ezzy-auth-wrapper .ezzy-btn,
+html body .ezzy-wallet-container .ezzy-btn,
+html body .ezzy-wallet-landing .ezzy-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px 36px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+    border: 2px solid transparent !important;
+    border-radius: 50px !important;
+    box-sizing: border-box !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    transition: all 0.3s ease !important;
+    outline: none !important;
+}
+
+html body .ezzy-auth-container .ezzy-btn-submit,
+html body .ezzy-auth-wrapper .ezzy-btn-submit,
+html body .ezzy-wallet-container .ezzy-btn-submit,
+html body .ezzy-wallet-landing .ezzy-btn-submit {
+    width: 100% !important;
+    min-width: auto !important;
+    padding: 18px 36px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    background-color: #3b82f6 !important;
+    border: 2px solid #3b82f6 !important;
+    border-radius: 50px !important;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35) !important;
+}
+
+html body .ezzy-auth-container .ezzy-btn-submit:hover,
+html body .ezzy-auth-wrapper .ezzy-btn-submit:hover,
+html body .ezzy-wallet-container .ezzy-btn-submit:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px rgba(59, 130, 246, 0.45) !important;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+    color: #ffffff !important;
+}
+
+html body .ezzy-auth-container .ezzy-btn-submit:focus,
+html body .ezzy-auth-wrapper .ezzy-btn-submit:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3), 0 8px 20px rgba(59, 130, 246, 0.35) !important;
+}
+
+html body .ezzy-auth-container .ezzy-btn-submit:active,
+html body .ezzy-auth-wrapper .ezzy-btn-submit:active {
+    transform: translateY(0) !important;
+}
+
+/* ---------------------------------------------------------------------
+   PRIMARY & SECONDARY BUTTONS
+   --------------------------------------------------------------------- */
+
+html body .ezzy-wallet-landing .ezzy-btn-primary,
+html body .ezzy-auth-container .ezzy-btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    color: #ffffff !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35) !important;
+}
+
+html body .ezzy-wallet-landing .ezzy-btn-primary:hover,
+html body .ezzy-auth-container .ezzy-btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px rgba(59, 130, 246, 0.45) !important;
+}
+
+html body .ezzy-wallet-landing .ezzy-btn-secondary,
+html body .ezzy-auth-container .ezzy-btn-secondary {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border: 2px solid #e2e8f0 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+html body .ezzy-wallet-landing .ezzy-btn-secondary:hover,
+html body .ezzy-auth-container .ezzy-btn-secondary:hover {
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* ---------------------------------------------------------------------
+   CHECKBOX - COMPLETE ISOLATION
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-form-checkbox,
+html body .ezzy-auth-wrapper .ezzy-form-checkbox {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+html body .ezzy-auth-container .ezzy-checkbox-wrapper,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    cursor: pointer !important;
+    line-height: 1.5 !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Hide native checkbox completely */
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"],
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+/* Custom checkbox square box */
+html body .ezzy-auth-container .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-custom {
+    position: relative !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
+    background: #ffffff !important;
+    background-image: none !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+    cursor: pointer !important;
+}
+
+html body .ezzy-auth-container .ezzy-checkbox-custom::before,
+html body .ezzy-auth-wrapper .ezzy-checkbox-custom::before {
+    display: none !important;
+}
+
+html body .ezzy-auth-container .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom {
+    border-color: #3b82f6 !important;
+    background: #f8fafc !important;
+}
+
+/* Checked state */
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom {
+    background: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Checkmark */
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    left: 6px !important;
+    top: 2px !important;
+    width: 6px !important;
+    height: 11px !important;
+    border: solid #ffffff !important;
+    border-width: 0 2.5px 2.5px 0 !important;
+    transform: rotate(45deg) !important;
+    box-sizing: border-box !important;
+}
+
+/* Focus state */
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Checkbox label */
+html body .ezzy-auth-container .ezzy-checkbox-label,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label {
+    font-size: 14px !important;
+    color: #475569 !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    padding-top: 1px !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+html body .ezzy-auth-container .ezzy-checkbox-label a,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label a {
+    color: #3b82f6 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+
+html body .ezzy-auth-container .ezzy-checkbox-label a:hover,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label a:hover {
+    text-decoration: underline !important;
+}
+
+/* ---------------------------------------------------------------------
+   FORM FOOTER & LINKS
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-form-footer,
+html body .ezzy-auth-wrapper .ezzy-form-footer {
+    text-align: center !important;
+    margin-top: 28px !important;
+    padding-top: 28px !important;
+    border-top: 1px solid #e2e8f0 !important;
+    background: transparent !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-footer p,
+html body .ezzy-auth-wrapper .ezzy-form-footer p {
+    font-size: 14px !important;
+    color: #64748b !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-switch,
+html body .ezzy-auth-wrapper .ezzy-form-switch {
+    color: #3b82f6 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-switch:hover,
+html body .ezzy-auth-wrapper .ezzy-form-switch:hover {
+    text-decoration: underline !important;
+    color: #1d4ed8 !important;
+}
+
+/* ---------------------------------------------------------------------
+   INPUT HINTS
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-input-hint,
+html body .ezzy-auth-wrapper .ezzy-input-hint {
+    font-size: 12px !important;
+    color: #94a3b8 !important;
+    margin-top: 8px !important;
+    padding-left: 4px !important;
+    line-height: 1.4 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* ---------------------------------------------------------------------
+   ERROR MESSAGES
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-form-error,
+html body .ezzy-auth-wrapper .ezzy-form-error {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 16px 20px !important;
+    background: linear-gradient(135deg, #fef2f2, #fee2e2) !important;
+    border: 1px solid #fecaca !important;
+    border-radius: 8px !important;
+    margin-bottom: 28px !important;
+    color: #ef4444 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-error svg,
+html body .ezzy-auth-wrapper .ezzy-form-error svg {
+    width: 22px !important;
+    height: 22px !important;
+    flex-shrink: 0 !important;
+    color: #ef4444 !important;
+}
+
+/* ---------------------------------------------------------------------
+   LOGO IN FORMS
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container .ezzy-form-logo,
+html body .ezzy-auth-wrapper .ezzy-form-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-bottom: 24px !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-logo-icon,
+html body .ezzy-auth-wrapper .ezzy-form-logo-icon {
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-logo-icon svg,
+html body .ezzy-auth-wrapper .ezzy-form-logo-icon svg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+html body .ezzy-auth-container .ezzy-form-logo-text,
+html body .ezzy-auth-wrapper .ezzy-form-logo-text {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    color: #3b82f6 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* ---------------------------------------------------------------------
+   RESPONSIVE - MOBILE
+   --------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    html body .ezzy-auth-container .ezzy-form-card,
+    html body .ezzy-auth-wrapper .ezzy-form-card {
+        padding: 30px 24px !important;
+        border-radius: 16px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-form-header h2,
+    html body .ezzy-auth-wrapper .ezzy-form-header h2 {
+        font-size: 26px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-input-wrapper input,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper input,
+    html body .ezzy-auth-container .ezzy-input-wrapper select,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper select {
+        padding: 12px 14px 12px 40px !important;
+        font-size: 16px !important;
+        min-height: 46px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-input-wrapper > svg:first-of-type,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper > svg:first-of-type {
+        left: 12px !important;
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-password-toggle,
+    html body .ezzy-auth-wrapper .ezzy-password-toggle {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        min-height: 38px !important;
+        max-width: 38px !important;
+        max-height: 38px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-btn-submit,
+    html body .ezzy-auth-wrapper .ezzy-btn-submit {
+        padding: 16px 30px !important;
+        font-size: 15px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-custom,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-custom {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after {
+        left: 5px !important;
+        top: 1px !important;
+        width: 5px !important;
+        height: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html body .ezzy-auth-container .ezzy-form-card,
+    html body .ezzy-auth-wrapper .ezzy-form-card {
+        padding: 24px 20px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-input-wrapper input,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper input,
+    html body .ezzy-auth-container .ezzy-input-wrapper select,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper select {
+        padding: 11px 12px 11px 38px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-input-wrapper > svg:first-of-type,
+    html body .ezzy-auth-wrapper .ezzy-input-wrapper > svg:first-of-type {
+        left: 10px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-wrapper,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper {
+        gap: 10px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-label,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-label {
+        font-size: 13px !important;
+    }
+}
+
+/* ---------------------------------------------------------------------
+   ELEMENTOR OVERRIDES - NUCLEAR OPTION
+   Kill all Elementor styles inside our containers
+   --------------------------------------------------------------------- */
+
+html body .ezzy-auth-container [class*="elementor-"],
+html body .ezzy-auth-wrapper [class*="elementor-"],
+html body .ezzy-wallet-container [class*="elementor-"],
+html body .ezzy-wallet-landing [class*="elementor-"] {
+    all: unset !important;
+    display: revert !important;
+}
+
+html body .ezzy-auth-container .elementor-button,
+html body .ezzy-auth-wrapper .elementor-button,
+html body .ezzy-wallet-container .elementor-button {
+    all: unset !important;
+}
+
+/* Ensure our buttons don't inherit elementor button styles */
+html body.elementor-page .ezzy-auth-container .ezzy-btn,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-btn,
+html body.elementor-page .ezzy-wallet-container .ezzy-btn,
+html body.elementor-page .ezzy-auth-container .ezzy-password-toggle,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-password-toggle {
+    background-image: none !important;
+    text-shadow: none !important;
+}
+
+/* ---------------------------------------------------------------------
+   THEME OVERRIDES - COMMON PATTERNS
+   --------------------------------------------------------------------- */
+
+/* Override common theme form styles */
+html body .ezzy-auth-container input:not([type="checkbox"]):not([type="radio"]),
+html body .ezzy-auth-wrapper input:not([type="checkbox"]):not([type="radio"]) {
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+/* Override theme button styles */
+html body .ezzy-auth-container button,
+html body .ezzy-auth-wrapper button {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+}
+
+/* =====================================================================
+   NUCLEAR CHECKBOX ISOLATION - ABSOLUTE FINAL OVERRIDE
+   This section uses the highest possible specificity to ensure
+   the checkbox displays correctly regardless of any theme or plugin
+   ===================================================================== */
+
+/* Reset ALL checkbox-related elements completely */
+html body .ezzy-wallet-landing .ezzy-form-checkbox,
+html body .ezzy-wallet-landing .ezzy-form-checkbox *,
+html body .ezzy-auth-container .ezzy-form-checkbox,
+html body .ezzy-auth-container .ezzy-form-checkbox *,
+html body .ezzy-auth-wrapper .ezzy-form-checkbox,
+html body .ezzy-auth-wrapper .ezzy-form-checkbox *,
+html body.elementor-page .ezzy-form-checkbox,
+html body.elementor-page .ezzy-form-checkbox * {
+    all: unset !important;
+    box-sizing: border-box !important;
+}
+
+/* Rebuild the checkbox container */
+html body .ezzy-wallet-landing .ezzy-form-checkbox,
+html body .ezzy-auth-container .ezzy-form-checkbox,
+html body .ezzy-auth-wrapper .ezzy-form-checkbox,
+html body.elementor-page .ezzy-auth-container .ezzy-form-checkbox,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-form-checkbox {
+    display: block !important;
+    margin: 16px 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Rebuild the checkbox wrapper/label */
+html body .ezzy-wallet-landing .ezzy-checkbox-wrapper,
+html body .ezzy-auth-container .ezzy-checkbox-wrapper,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper,
+html body.elementor-page .ezzy-auth-container .ezzy-checkbox-wrapper,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-checkbox-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    cursor: pointer !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Hide the native checkbox input COMPLETELY */
+html body .ezzy-wallet-landing .ezzy-checkbox-wrapper input[type="checkbox"],
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"],
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"],
+html body.elementor-page .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"],
+html body.elementor-page .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"],
+html body .ezzy-checkbox-wrapper input#ezzy_terms {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+/* THE CUSTOM CHECKBOX SQUARE BOX - UNCHECKED STATE */
+html body .ezzy-wallet-landing .ezzy-checkbox-custom,
+html body .ezzy-auth-container .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-custom,
+html body.elementor-page .ezzy-auth-container .ezzy-checkbox-custom,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-checkbox-custom,
+html body .ezzy-checkbox-wrapper span.ezzy-checkbox-custom {
+    display: inline-block !important;
+    position: relative !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border: 2px solid #9ca3af !important;
+    border-radius: 4px !important;
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease-in-out !important;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05) !important;
+    vertical-align: top !important;
+}
+
+/* Remove any ::before pseudo-elements from themes */
+html body .ezzy-wallet-landing .ezzy-checkbox-custom::before,
+html body .ezzy-auth-container .ezzy-checkbox-custom::before,
+html body .ezzy-auth-wrapper .ezzy-checkbox-custom::before,
+html body.elementor-page .ezzy-checkbox-custom::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Hover state for checkbox */
+html body .ezzy-wallet-landing .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom,
+html body .ezzy-auth-container .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom,
+html body.elementor-page .ezzy-checkbox-wrapper:hover .ezzy-checkbox-custom {
+    border-color: #3b82f6 !important;
+    background-color: #f0f9ff !important;
+}
+
+/* CHECKED STATE - Blue filled box */
+html body .ezzy-wallet-landing .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom,
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom,
+html body.elementor-page .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom,
+html body .ezzy-checkbox-wrapper input#ezzy_terms:checked + .ezzy-checkbox-custom {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* CHECKMARK - White tick inside checked box */
+html body .ezzy-wallet-landing .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+html body.elementor-page .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+html body .ezzy-checkbox-wrapper input#ezzy_terms:checked + .ezzy-checkbox-custom::after {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    left: 6px !important;
+    top: 2px !important;
+    width: 5px !important;
+    height: 10px !important;
+    border: solid #ffffff !important;
+    border-width: 0 2px 2px 0 !important;
+    transform: rotate(45deg) !important;
+    box-sizing: border-box !important;
+}
+
+/* Focus state for accessibility */
+html body .ezzy-wallet-landing .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom,
+html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom,
+html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom,
+html body.elementor-page .ezzy-checkbox-wrapper input[type="checkbox"]:focus + .ezzy-checkbox-custom {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+    border-color: #3b82f6 !important;
+}
+
+/* THE CHECKBOX LABEL TEXT */
+html body .ezzy-wallet-landing .ezzy-checkbox-label,
+html body .ezzy-auth-container .ezzy-checkbox-label,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label,
+html body.elementor-page .ezzy-auth-container .ezzy-checkbox-label,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-checkbox-label,
+html body .ezzy-checkbox-wrapper span.ezzy-checkbox-label {
+    display: inline !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    color: #475569 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 2px 0 0 0 !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+
+/* Links inside checkbox label */
+html body .ezzy-wallet-landing .ezzy-checkbox-label a,
+html body .ezzy-auth-container .ezzy-checkbox-label a,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label a,
+html body.elementor-page .ezzy-checkbox-label a {
+    color: #3b82f6 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+html body .ezzy-wallet-landing .ezzy-checkbox-label a:hover,
+html body .ezzy-auth-container .ezzy-checkbox-label a:hover,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label a:hover,
+html body.elementor-page .ezzy-checkbox-label a:hover {
+    text-decoration: underline !important;
+    color: #2563eb !important;
+}
+
+/* Required asterisk */
+html body .ezzy-wallet-landing .ezzy-checkbox-label .required,
+html body .ezzy-auth-container .ezzy-checkbox-label .required,
+html body .ezzy-auth-wrapper .ezzy-checkbox-label .required,
+html body.elementor-page .ezzy-checkbox-label .required {
+    color: #ef4444 !important;
+    font-weight: 400 !important;
+    margin-left: 2px !important;
+}
+
+/* =====================================================================
+   RESPONSIVE CHECKBOX - MOBILE DEVICES
+   ===================================================================== */
+
+@media screen and (max-width: 768px) {
+    html body .ezzy-auth-container .ezzy-checkbox-custom,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-custom,
+    html body.elementor-page .ezzy-checkbox-custom {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after,
+    html body.elementor-page .ezzy-checkbox-wrapper input[type="checkbox"]:checked + .ezzy-checkbox-custom::after {
+        left: 5px !important;
+        top: 1px !important;
+        width: 4px !important;
+        height: 9px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-label,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-label,
+    html body.elementor-page .ezzy-checkbox-label {
+        font-size: 13px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-wrapper,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper,
+    html body.elementor-page .ezzy-checkbox-wrapper {
+        gap: 10px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html body .ezzy-auth-container .ezzy-checkbox-custom,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-custom,
+    html body.elementor-page .ezzy-checkbox-custom {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+        margin-top: 1px !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-label,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-label,
+    html body.elementor-page .ezzy-checkbox-label {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+    }
+
+    html body .ezzy-auth-container .ezzy-checkbox-wrapper,
+    html body .ezzy-auth-wrapper .ezzy-checkbox-wrapper {
+        gap: 8px !important;
+    }
+}
+
+/* =====================================================================
+   NUCLEAR HEADING ISOLATION - FORM TITLES
+   "Create Account" and "Welcome Back" headings
+   ===================================================================== */
+
+/* Reset and rebuild form header */
+html body .ezzy-wallet-landing .ezzy-form-header,
+html body .ezzy-auth-container .ezzy-form-header,
+html body .ezzy-auth-wrapper .ezzy-form-header,
+html body.elementor-page .ezzy-auth-container .ezzy-form-header,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-form-header,
+html body.elementor-page .ezzy-form-header {
+    text-align: center !important;
+    margin-bottom: 28px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* THE MAIN HEADING - "Create Account" / "Welcome Back" */
+html body .ezzy-wallet-landing .ezzy-form-header h2,
+html body .ezzy-auth-container .ezzy-form-header h2,
+html body .ezzy-auth-wrapper .ezzy-form-header h2,
+html body.elementor-page .ezzy-auth-container .ezzy-form-header h2,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-form-header h2,
+html body.elementor-page .ezzy-form-header h2,
+html body .ezzy-form-card .ezzy-form-header h2 {
+    all: unset !important;
+    display: block !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    color: #1e293b !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.02em !important;
+    text-align: center !important;
+    text-transform: none !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    -webkit-text-stroke: 0 !important;
+    text-stroke: 0 !important;
+}
+
+/* Subtitle under heading - "Join eZZY Wallet..." / "Sign in to access..." */
+html body .ezzy-wallet-landing .ezzy-form-header p,
+html body .ezzy-auth-container .ezzy-form-header p,
+html body .ezzy-auth-wrapper .ezzy-form-header p,
+html body.elementor-page .ezzy-auth-container .ezzy-form-header p,
+html body.elementor-page .ezzy-auth-wrapper .ezzy-form-header p,
+html body.elementor-page .ezzy-form-header p,
+html body .ezzy-form-card .ezzy-form-header p {
+    all: unset !important;
+    display: block !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    color: #64748b !important;
+    line-height: 1.5 !important;
+    letter-spacing: normal !important;
+    text-align: center !important;
+    text-transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Logo in form header */
+html body .ezzy-wallet-landing .ezzy-form-logo,
+html body .ezzy-auth-container .ezzy-form-logo,
+html body .ezzy-auth-wrapper .ezzy-form-logo,
+html body.elementor-page .ezzy-form-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important; /* Minimal gap - icon and text close together */
+    margin-bottom: 20px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+html body .ezzy-wallet-landing .ezzy-form-logo-icon,
+html body .ezzy-auth-container .ezzy-form-logo-icon,
+html body .ezzy-auth-wrapper .ezzy-form-logo-icon,
+html body.elementor-page .ezzy-form-logo-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-right: -4px !important; /* Bring closer to text */
+}
+
+html body .ezzy-wallet-landing .ezzy-form-logo-icon svg,
+html body .ezzy-auth-container .ezzy-form-logo-icon svg,
+html body .ezzy-auth-wrapper .ezzy-form-logo-icon svg,
+html body.elementor-page .ezzy-form-logo-icon svg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+html body .ezzy-wallet-landing .ezzy-form-logo-text,
+html body .ezzy-auth-container .ezzy-form-logo-text,
+html body .ezzy-auth-wrapper .ezzy-form-logo-text,
+html body.elementor-page .ezzy-form-logo-text {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    color: #3b82f6 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+    margin: 0 !important;
+    margin-left: 0 !important; /* No extra margin */
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* =====================================================================
+   RESPONSIVE HEADINGS - TABLET & MOBILE
+   ===================================================================== */
+
+@media screen and (max-width: 768px) {
+    html body .ezzy-wallet-landing .ezzy-form-header h2,
+    html body .ezzy-auth-container .ezzy-form-header h2,
+    html body .ezzy-auth-wrapper .ezzy-form-header h2,
+    html body.elementor-page .ezzy-form-header h2,
+    html body .ezzy-form-card .ezzy-form-header h2 {
+        font-size: 24px !important;
+        margin-bottom: 6px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-header p,
+    html body .ezzy-auth-container .ezzy-form-header p,
+    html body .ezzy-auth-wrapper .ezzy-form-header p,
+    html body.elementor-page .ezzy-form-header p {
+        font-size: 13px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-logo-text,
+    html body .ezzy-auth-container .ezzy-form-logo-text,
+    html body .ezzy-auth-wrapper .ezzy-form-logo-text,
+    html body.elementor-page .ezzy-form-logo-text {
+        font-size: 18px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-logo-icon,
+    html body .ezzy-auth-container .ezzy-form-logo-icon,
+    html body .ezzy-auth-wrapper .ezzy-form-logo-icon {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html body .ezzy-wallet-landing .ezzy-form-header h2,
+    html body .ezzy-auth-container .ezzy-form-header h2,
+    html body .ezzy-auth-wrapper .ezzy-form-header h2,
+    html body.elementor-page .ezzy-form-header h2,
+    html body .ezzy-form-card .ezzy-form-header h2 {
+        font-size: 22px !important;
+        margin-bottom: 4px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-header p,
+    html body .ezzy-auth-container .ezzy-form-header p,
+    html body .ezzy-auth-wrapper .ezzy-form-header p,
+    html body.elementor-page .ezzy-form-header p {
+        font-size: 12px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-header,
+    html body .ezzy-auth-container .ezzy-form-header,
+    html body .ezzy-auth-wrapper .ezzy-form-header {
+        margin-bottom: 24px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-logo,
+    html body .ezzy-auth-container .ezzy-form-logo,
+    html body .ezzy-auth-wrapper .ezzy-form-logo {
+        margin-bottom: 16px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-logo-text,
+    html body .ezzy-auth-container .ezzy-form-logo-text,
+    html body .ezzy-auth-wrapper .ezzy-form-logo-text {
+        font-size: 16px !important;
+    }
+
+    html body .ezzy-wallet-landing .ezzy-form-logo-icon,
+    html body .ezzy-auth-container .ezzy-form-logo-icon,
+    html body .ezzy-auth-wrapper .ezzy-form-logo-icon {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+    }
+}
+

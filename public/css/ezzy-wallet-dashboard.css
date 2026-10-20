@@ -1,0 +1,4665 @@
+/**
+ * eZZY Wallet Dashboard
+ * Dynamic Responsive UI/UX
+ * Full logo on all devices with responsive sizing
+ */
+
+/* ============================================
+   CSS ISOLATION - Prevent external style inheritance
+   Uses maximum specificity to override Elementor,
+   theme, and plugin global styles
+   ============================================ */
+
+/* CRITICAL: Use html body prefix for maximum specificity */
+html body .ezzy-dashboard,
+html body .ezzy-dashboard *,
+html body .ezzy-dashboard *::before,
+html body .ezzy-dashboard *::after {
+    /* Reset inherited properties with !important */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-style: normal !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    font-variant: normal !important;
+    -webkit-text-stroke: 0 !important;
+    text-stroke: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Force base container styling */
+html body .ezzy-dashboard {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    color: var(--ezzy-dark) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Force headings - smaller, lighter weight like modern fintech dashboards */
+html body .ezzy-dashboard h1,
+body.elementor-page .ezzy-dashboard h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+    color: var(--ezzy-dark) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .ezzy-dashboard h2,
+body.elementor-page .ezzy-dashboard h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+    color: var(--ezzy-dark) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .ezzy-dashboard h3,
+body.elementor-page .ezzy-dashboard h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+    color: var(--ezzy-dark) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html body .ezzy-dashboard h4,
+html body .ezzy-dashboard h5,
+html body .ezzy-dashboard h6,
+body.elementor-page .ezzy-dashboard h4,
+body.elementor-page .ezzy-dashboard h5,
+body.elementor-page .ezzy-dashboard h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em !important;
+    text-transform: none !important;
+    color: var(--ezzy-dark) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Force paragraph and text */
+html body .ezzy-dashboard p,
+html body .ezzy-dashboard span,
+html body .ezzy-dashboard label,
+html body .ezzy-dashboard td,
+html body .ezzy-dashboard th,
+html body .ezzy-dashboard div {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+/* Force ALL buttons - critical override */
+html body .ezzy-dashboard button,
+html body .ezzy-dashboard .ezzy-btn,
+html body .ezzy-dashboard .ezzy-action-btn,
+html body .ezzy-dashboard input[type="submit"],
+html body .ezzy-dashboard input[type="button"],
+body.elementor-page .ezzy-dashboard button,
+body.elementor-page .ezzy-dashboard .ezzy-btn,
+body.elementor-page .ezzy-dashboard .ezzy-action-btn {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    line-height: 1.5 !important;
+    cursor: pointer !important;
+    border-radius: var(--ezzy-radius-sm) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Force primary action buttons */
+html body .ezzy-dashboard .ezzy-action-btn,
+html body .ezzy-dashboard .ezzy-btn-primary,
+body.elementor-page .ezzy-dashboard .ezzy-action-btn,
+body.elementor-page .ezzy-dashboard .ezzy-btn-primary {
+    background: var(--ezzy-primary) !important;
+    background-color: var(--ezzy-primary) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+html body .ezzy-dashboard .ezzy-action-btn:hover,
+html body .ezzy-dashboard .ezzy-btn-primary:hover,
+body.elementor-page .ezzy-dashboard .ezzy-action-btn:hover {
+    background: var(--ezzy-secondary) !important;
+    background-color: var(--ezzy-secondary) !important;
+    color: #ffffff !important;
+}
+
+/* Force balance toggle button */
+html body .ezzy-dashboard .ezzy-balance-toggle,
+html body .ezzy-dashboard #ezzy-balance-toggle,
+body.elementor-page .ezzy-dashboard .ezzy-balance-toggle {
+    background: rgba(var(--ezzy-primary-rgb), 0.15) !important;
+    background-color: rgba(var(--ezzy-primary-rgb), 0.15) !important;
+    border: none !important;
+    color: var(--ezzy-primary) !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+}
+
+/* Force inputs and form elements */
+html body .ezzy-dashboard input:not([type="submit"]):not([type="button"]):not([type="file"]),
+html body .ezzy-dashboard textarea,
+html body .ezzy-dashboard select,
+body.elementor-page .ezzy-dashboard input,
+body.elementor-page .ezzy-dashboard textarea,
+body.elementor-page .ezzy-dashboard select {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    color: var(--ezzy-dark) !important;
+    background-color: var(--ezzy-form-bg, #f8fafc) !important;
+    border: 1px solid var(--ezzy-input-border, #e2e8f0) !important;
+    border-radius: var(--ezzy-radius-sm) !important;
+}
+
+/* Force links */
+html body .ezzy-dashboard a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+/* Force navigation */
+html body .ezzy-dashboard .ezzy-nav-list a,
+html body .ezzy-dashboard .ezzy-footer-item,
+body.elementor-page .ezzy-dashboard .ezzy-nav-list a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+}
+
+/* Force currency switcher button */
+html body .ezzy-dashboard .ezzy-switch-btn,
+body.elementor-page .ezzy-dashboard .ezzy-switch-btn {
+    background: var(--ezzy-primary) !important;
+    background-color: var(--ezzy-primary) !important;
+    color: #ffffff !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Force backgrounds */
+html body .ezzy-dashboard .ezzy-sidebar,
+html body .ezzy-dashboard .ezzy-header,
+html body .ezzy-dashboard .ezzy-card,
+html body .ezzy-dashboard .ezzy-panel,
+body.elementor-page .ezzy-dashboard .ezzy-sidebar,
+body.elementor-page .ezzy-dashboard .ezzy-header,
+body.elementor-page .ezzy-dashboard .ezzy-card {
+    background: var(--ezzy-white) !important;
+    background-color: var(--ezzy-white) !important;
+}
+
+/* Override ANY Elementor classes inside dashboard */
+html body .ezzy-dashboard [class*="elementor-"],
+html body .ezzy-dashboard .elementor-widget-container,
+body.elementor-page .ezzy-dashboard [class*="elementor-"] {
+    all: unset !important;
+    display: block !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Keep our dashboard flex layout intact */
+html body .ezzy-dashboard {
+    display: flex !important;
+}
+
+/* ============================================
+   CSS Variables
+   ============================================ */
+:root {
+    --ezzy-primary: #3b82f6;
+    --ezzy-secondary: #1d4ed8;
+    --ezzy-primary-rgb: 59, 130, 246;
+    --ezzy-sidebar-w: 250px;
+    --ezzy-footer-h: 70px;
+    --ezzy-white: #ffffff;
+    --ezzy-dark: #1a1a2e;
+    --ezzy-gray: #71717a;
+    --ezzy-gray-light: #a1a1aa;
+    --ezzy-light: #f4f4f5;
+    --ezzy-line: #e4e4e7;
+    --ezzy-green: #22c55e;
+    --ezzy-yellow: #eab308;
+    --ezzy-red: #ef4444;
+    --ezzy-radius: 12px;
+    --ezzy-radius-sm: 8px;
+    --ezzy-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --ezzy-transition: 0.2s ease;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+.ezzy-dashboard,
+.ezzy-dashboard *,
+.ezzy-dashboard *::before,
+.ezzy-dashboard *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ezzy-dashboard {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, 
+        rgba(var(--ezzy-primary-rgb), 0.08) 0%, 
+        rgba(var(--ezzy-primary-rgb), 0.03) 50%,
+        rgba(var(--ezzy-primary-rgb), 0.06) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    color: var(--ezzy-dark);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   SIDEBAR (Desktop Only)
+   ============================================ */
+.ezzy-sidebar {
+    width: var(--ezzy-sidebar-w);
+    min-width: var(--ezzy-sidebar-w);
+    background: var(--ezzy-white);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    border-right: 1px solid var(--ezzy-line);
+}
+
+/* ============================================
+   LOGO - Phase 4 Final (Desktop Sidebar)
+   ============================================ */
+.ezzy-logo {
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid var(--ezzy-line);
+}
+
+.ezzy-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.ezzy-logo-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    margin-right: -2px;
+}
+
+.ezzy-logo-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(var(--ezzy-primary-rgb), 0.3));
+}
+
+.ezzy-logo-brand {
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ezzy-primary);
+    letter-spacing: -0.02em;
+}
+
+.ezzy-logo-tagline {
+    display: block;
+    font-size: 11px;
+    color: var(--ezzy-gray-light);
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-top: -5px;
+    padding-left: 110px;
+    letter-spacing: 0.3px;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.ezzy-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+}
+
+.ezzy-nav-group {
+    padding: 8px 0;
+}
+
+.ezzy-nav-others {
+    margin-top: auto;
+    border-top: 1px solid var(--ezzy-line);
+    padding-top: 16px;
+}
+
+.ezzy-nav-label {
+    display: block;
+    padding: 0 20px 12px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ezzy-gray-light);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.ezzy-nav-list {
+    list-style: none;
+}
+
+.ezzy-nav-list li {
+    padding: 2px 12px;
+}
+
+.ezzy-nav-list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: var(--ezzy-radius-sm);
+    color: var(--ezzy-gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-nav-list a svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.ezzy-nav-list a:hover {
+    background: var(--ezzy-light);
+    color: var(--ezzy-dark);
+}
+
+.ezzy-nav-list li.active a {
+    background: var(--ezzy-primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(var(--ezzy-primary-rgb), 0.35);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.ezzy-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.ezzy-header {
+    background: var(--ezzy-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--ezzy-line);
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   HEADER LOGO (Tablet/Mobile) - Full Version
+   ============================================ */
+.ezzy-header-logo {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.ezzy-header-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.ezzy-header-logo-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    margin-right: -2px;
+}
+
+.ezzy-header-logo-icon svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 2px 4px rgba(var(--ezzy-primary-rgb), 0.3));
+}
+
+.ezzy-header-logo-brand {
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ezzy-primary);
+    letter-spacing: -0.02em;
+}
+
+.ezzy-header-logo-tagline {
+    display: block;
+    font-size: 11px;
+    color: var(--ezzy-gray-light);
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-top: -4px;
+    padding-left: 45px;
+    letter-spacing: 0.3px;
+}
+
+/* ============================================
+   Crypto Bar
+   ============================================ */
+.ezzy-crypto-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ezzy-crypto-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px 6px 6px;
+    background: var(--ezzy-light);
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.ezzy-crypto-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.ezzy-crypto-value {
+    color: var(--ezzy-dark);
+    font-weight: 600;
+}
+
+/* ============================================
+   User Section
+   ============================================ */
+.ezzy-header-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Others Menu (Support & Settings) */
+.ezzy-others-menu {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.ezzy-others-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--ezzy-light);
+    color: var(--ezzy-gray);
+    text-decoration: none;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-others-btn:hover {
+    background: var(--ezzy-line);
+    color: var(--ezzy-primary);
+}
+
+.ezzy-others-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.ezzy-user-greeting {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-user-greeting strong {
+    color: var(--ezzy-dark);
+    font-weight: 600;
+}
+
+.ezzy-user-signout {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    text-decoration: none;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-user-signout:hover {
+    color: var(--ezzy-red);
+}
+
+.ezzy-user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--ezzy-line);
+    flex-shrink: 0;
+}
+
+.ezzy-user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Avatar Upload Styling */
+.ezzy-avatar-upload {
+    position: relative;
+    cursor: pointer;
+    transition: all var(--ezzy-transition);
+}
+
+.ezzy-avatar-upload:hover {
+    border-color: var(--ezzy-primary);
+}
+
+.ezzy-user-avatar.ezzy-avatar-upload .ezzy-avatar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--ezzy-transition);
+    border-radius: 50%;
+}
+
+.ezzy-user-avatar.ezzy-avatar-upload:hover .ezzy-avatar-overlay {
+    opacity: 1;
+}
+
+.ezzy-user-avatar.ezzy-avatar-upload .ezzy-avatar-overlay svg {
+    width: 16px;
+    height: 16px;
+    color: #fff;
+}
+
+/* Loading state for avatar */
+.ezzy-avatar-upload.ezzy-avatar-loading {
+    pointer-events: none;
+}
+
+.ezzy-avatar-upload.ezzy-avatar-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: ezzy-avatar-spin 0.8s linear infinite;
+}
+
+.ezzy-avatar-upload.ezzy-avatar-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+@keyframes ezzy-avatar-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Toast Notifications */
+.ezzy-toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ezzy-dark);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: var(--ezzy-radius);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    font-size: 14px !important;
+}
+
+.ezzy-toast-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.ezzy-toast svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.ezzy-toast-success {
+    background: var(--ezzy-green);
+}
+
+.ezzy-toast-error {
+    background: var(--ezzy-red);
+}
+
+/* ============================================
+   CONTENT AREA
+   ============================================ */
+.ezzy-content {
+    flex: 1;
+    padding: 24px;
+}
+
+.ezzy-card {
+    background: var(--ezzy-white);
+    border-radius: var(--ezzy-radius);
+    box-shadow: var(--ezzy-shadow);
+    overflow: hidden;
+}
+
+/* ============================================
+   WALLET HEADER
+   ============================================ */
+.ezzy-wallet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--ezzy-line);
+}
+
+.ezzy-wallet-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ezzy-wallet-icon {
+    width: 34px;
+    height: 34px;
+}
+
+.ezzy-wallet-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ezzy-wallet-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+}
+
+.ezzy-switch-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--ezzy-white);
+    border: 1px solid var(--ezzy-line);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ezzy-gray);
+    cursor: pointer;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-switch-btn:hover {
+    border-color: var(--ezzy-gray);
+}
+
+.ezzy-switch-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* ============================================
+   CURRENCY SWITCHER
+   ============================================ */
+.ezzy-currency-switcher {
+    position: relative;
+}
+
+.ezzy-currency-switcher .ezzy-switch-btn {
+    min-width: 80px;
+}
+
+#ezzy-current-currency {
+    font-weight: 600;
+    color: var(--ezzy-dark);
+}
+
+.ezzy-currency-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    background: var(--ezzy-white);
+    border: 1px solid var(--ezzy-line);
+    border-radius: var(--ezzy-radius-sm);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-width: 120px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+}
+
+.ezzy-currency-dropdown.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.ezzy-currency-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+    cursor: pointer;
+    transition: var(--ezzy-transition);
+    text-align: left;
+}
+
+.ezzy-currency-option:hover {
+    background: var(--ezzy-light);
+}
+
+.ezzy-currency-option.active {
+    background: rgba(var(--ezzy-primary-rgb), 0.1);
+    color: var(--ezzy-primary);
+}
+
+.ezzy-currency-option:first-child {
+    border-radius: var(--ezzy-radius-sm) var(--ezzy-radius-sm) 0 0;
+}
+
+.ezzy-currency-option:last-child {
+    border-radius: 0 0 var(--ezzy-radius-sm) var(--ezzy-radius-sm);
+}
+
+.ezzy-currency-symbol {
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+/* ============================================
+   BALANCE SECTION
+   ============================================ */
+.ezzy-balance-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 24px;
+    border-bottom: 1px solid var(--ezzy-line);
+    gap: 24px;
+}
+
+.ezzy-balance-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ezzy-balance-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-balance-label svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.5;
+}
+
+.ezzy-balance-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ezzy-balance-amount {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ezzy-dark);
+    letter-spacing: -0.5px;
+    transition: opacity 0.15s ease;
+}
+
+.ezzy-balance-amount.is-hidden {
+    color: var(--ezzy-gray-light);
+    letter-spacing: 2px;
+}
+
+.ezzy-balance-toggle {
+    width: 34px !important;
+    height: 34px !important;
+    border: none !important;
+    background: var(--ezzy-light) !important;
+    background-color: var(--ezzy-light) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: var(--ezzy-transition) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.ezzy-balance-toggle:hover {
+    background: var(--ezzy-line) !important;
+    background-color: var(--ezzy-line) !important;
+}
+
+.ezzy-balance-toggle svg {
+    width: 18px !important;
+    height: 18px !important;
+    color: var(--ezzy-gray) !important;
+    stroke: var(--ezzy-gray) !important;
+}
+
+.ezzy-balance-toggle .ezzy-eye-closed {
+    display: none !important;
+}
+
+.ezzy-balance-toggle.is-hidden .ezzy-eye-open {
+    display: none !important;
+}
+
+.ezzy-balance-toggle.is-hidden .ezzy-eye-closed {
+    display: block !important;
+}
+
+/* ============================================
+   ACTION BUTTONS
+   ============================================ */
+.ezzy-balance-actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.ezzy-action-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 12px 22px !important;
+    border-radius: var(--ezzy-radius-sm) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: var(--ezzy-transition) !important;
+    border: none !important;
+    white-space: nowrap !important;
+    background: var(--ezzy-primary) !important;
+    background-color: var(--ezzy-primary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(var(--ezzy-primary-rgb), 0.35) !important;
+}
+
+.ezzy-action-btn:hover {
+    background: var(--ezzy-secondary) !important;
+    background-color: var(--ezzy-secondary) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(var(--ezzy-primary-rgb), 0.4) !important;
+}
+
+.ezzy-action-btn svg {
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+}
+
+.ezzy-action-primary {
+    background: var(--ezzy-primary) !important;
+    background-color: var(--ezzy-primary) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(var(--ezzy-primary-rgb), 0.35) !important;
+}
+
+.ezzy-action-primary:hover {
+    background: var(--ezzy-secondary) !important;
+    background-color: var(--ezzy-secondary) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 16px rgba(var(--ezzy-primary-rgb), 0.4) !important;
+}
+
+.ezzy-action-outline {
+    background: var(--ezzy-white) !important;
+    background-color: var(--ezzy-white) !important;
+    color: var(--ezzy-dark) !important;
+    border: 1px solid var(--ezzy-line) !important;
+}
+
+.ezzy-action-outline:hover {
+    background: var(--ezzy-light) !important;
+    background-color: var(--ezzy-light) !important;
+    border-color: var(--ezzy-gray-light) !important;
+}
+
+/* Disabled Button State */
+.ezzy-btn-disabled,
+.ezzy-action-btn[disabled],
+.ezzy-action-btn.ezzy-btn-disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+.ezzy-btn-disabled:hover,
+.ezzy-action-btn[disabled]:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ============================================
+   TRANSACTIONS SECTION
+   ============================================ */
+.ezzy-transactions-section {
+    padding: 24px;
+}
+
+.ezzy-transactions-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--ezzy-dark) !important;
+    margin-bottom: 16px !important;
+    letter-spacing: -0.01em !important;
+}
+
+.ezzy-transactions-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ezzy-transactions-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px;
+}
+
+.ezzy-transactions-table thead {
+    background: var(--ezzy-light);
+}
+
+.ezzy-transactions-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ezzy-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ezzy-transactions-table tbody tr {
+    border-bottom: 1px solid var(--ezzy-line);
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-transactions-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.ezzy-transactions-table tbody tr:hover {
+    background: rgba(var(--ezzy-primary-rgb), 0.02);
+}
+
+.ezzy-transactions-table td {
+    padding: 16px;
+}
+
+/* Recent Transactions Table - specific styling */
+.ezzy-recent-table table {
+    min-width: 100%;
+}
+
+.ezzy-recent-table .col-type {
+    width: 100px;
+}
+
+.ezzy-recent-table .col-description {
+    width: auto;
+    min-width: 180px;
+}
+
+.ezzy-recent-table .col-amount {
+    width: 120px;
+    text-align: right;
+}
+
+.ezzy-recent-table .col-status {
+    width: 100px;
+    text-align: center;
+}
+
+.ezzy-recent-table .col-date {
+    width: 110px;
+    text-align: right;
+}
+
+.ezzy-recent-table td.col-amount {
+    text-align: right;
+}
+
+.ezzy-recent-table td.col-status {
+    text-align: center;
+}
+
+.ezzy-recent-table td.col-date {
+    text-align: right;
+}
+
+/* Transaction Type Badges - Unified styling for both tables */
+.ezzy-type-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+/* Default badge */
+.ezzy-type-badge {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+/* Deposit - Green */
+.ezzy-type-badge.ezzy-type-deposit,
+.ezzy-type-deposit {
+    background: #dcfce7 !important;
+    color: #16a34a !important;
+}
+
+/* Withdrawal - Red */
+.ezzy-type-badge.ezzy-type-withdrawal,
+.ezzy-type-withdrawal {
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+}
+
+/* Transfer - Blue */
+.ezzy-type-badge.ezzy-type-transfer,
+.ezzy-type-transfer {
+    background: #dbeafe !important;
+    color: #2563eb !important;
+}
+
+/* Description with tooltip on hover */
+.ezzy-tx-description {
+    font-size: 14px;
+    color: var(--ezzy-dark);
+    display: block;
+    line-height: 1.4;
+    cursor: default;
+}
+
+/* Only truncate on small screens or when space is limited */
+.ezzy-recent-table .ezzy-tx-description,
+.ezzy-full-table .ezzy-tx-description {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Show full text on hover via tooltip (native browser tooltip from title attr) */
+.ezzy-tx-description[title]:hover {
+    cursor: help;
+}
+
+.ezzy-tx-type {
+    font-weight: 500;
+    color: var(--ezzy-dark);
+}
+
+.ezzy-tx-amount {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.ezzy-tx-amount.is-positive,
+.ezzy-tx-amount.amount-positive {
+    color: var(--ezzy-green);
+}
+
+.ezzy-tx-amount.amount-negative {
+    color: var(--ezzy-red);
+}
+
+.ezzy-tx-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.ezzy-status-completed,
+.ezzy-status-approved {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--ezzy-green);
+}
+
+.ezzy-status-pending {
+    background: rgba(234, 179, 8, 0.1);
+    color: var(--ezzy-yellow);
+}
+
+.ezzy-status-failed,
+.ezzy-status-rejected {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--ezzy-red);
+}
+
+.ezzy-status-system {
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
+}
+
+/* Date and Time in Recent Transactions */
+.ezzy-recent-table .ezzy-tx-date {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+}
+
+.ezzy-recent-table .ezzy-tx-time {
+    display: block;
+    font-size: 12px;
+    color: var(--ezzy-gray);
+    margin-top: 2px;
+}
+
+/* Legacy date styling */
+.ezzy-tx-date {
+    color: var(--ezzy-gray);
+}
+
+/* ============================================
+   MOBILE FOOTER NAVIGATION (Self-contained)
+   ============================================ */
+.ezzy-footer-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--ezzy-footer-h);
+    background: var(--ezzy-white);
+    border-top: 1px solid var(--ezzy-line);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.ezzy-footer-item {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 4px;
+    padding: 10px 8px;
+    min-width: 60px;
+    max-width: 90px;
+    background: transparent;
+    color: var(--ezzy-gray);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--ezzy-transition);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.ezzy-footer-item svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    fill: none;
+}
+
+.ezzy-footer-item span {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.ezzy-footer-item:hover {
+    color: var(--ezzy-primary);
+    background: rgba(var(--ezzy-primary-rgb), 0.05);
+}
+
+.ezzy-footer-item.active {
+    color: var(--ezzy-primary);
+    background: rgba(var(--ezzy-primary-rgb), 0.1);
+}
+
+.ezzy-footer-item.active svg {
+    stroke-width: 2;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET (1024px and below)
+   ============================================ */
+@media (max-width: 1024px) {
+    /* Hide desktop sidebar */
+    .ezzy-sidebar {
+        display: none;
+    }
+
+    /* Show full header logo */
+    .ezzy-header-logo {
+        display: flex;
+    }
+
+    /* Show Others menu icons */
+    .ezzy-others-menu {
+        display: flex;
+    }
+
+    /* Show footer navigation */
+    .ezzy-footer-nav {
+        display: flex;
+    }
+
+    /* Add bottom padding for footer */
+    .ezzy-dashboard {
+        padding-bottom: var(--ezzy-footer-h);
+    }
+
+    /* Header adjustments */
+    .ezzy-header {
+        padding: 14px 20px;
+    }
+
+    /* Crypto bar moves to its own row */
+    .ezzy-crypto-bar {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: 12px;
+        border-top: 1px solid var(--ezzy-line);
+        margin-top: 12px;
+    }
+
+    /* Balance section stacks */
+    .ezzy-balance-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .ezzy-balance-actions {
+        width: 100%;
+    }
+
+    .ezzy-action-btn {
+        flex: 1;
+    }
+
+    /* Content padding */
+    .ezzy-content {
+        padding: 20px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - TABLET SMALL (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+    /* Header */
+    .ezzy-header {
+        padding: 12px 16px;
+    }
+
+    /* Logo sizing for small tablet - BIGGER */
+    .ezzy-header-logo-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .ezzy-header-logo-brand {
+        font-size: 20px;
+    }
+
+    .ezzy-header-logo-tagline {
+        font-size: 10px;
+        padding-left: 40px;
+        margin-top: -3px;
+    }
+
+    /* Crypto pills */
+    .ezzy-crypto-pill {
+        padding: 5px 10px 5px 5px;
+        font-size: 12px;
+    }
+
+    .ezzy-crypto-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    /* Hide greeting on smaller tablets */
+    .ezzy-user-greeting {
+        display: none;
+    }
+
+    /* Content */
+    .ezzy-content {
+        padding: 16px;
+    }
+
+    .ezzy-wallet-header {
+        padding: 16px 18px;
+    }
+
+    .ezzy-wallet-title {
+        font-size: 15px;
+    }
+
+    .ezzy-balance-section {
+        padding: 18px;
+    }
+
+    .ezzy-balance-amount {
+        font-size: 30px;
+    }
+
+    /* Action buttons wrap to 2x2 */
+    .ezzy-balance-actions {
+        flex-wrap: wrap;
+    }
+
+    .ezzy-action-btn {
+        min-width: calc(50% - 6px);
+        padding: 12px 16px;
+    }
+
+    .ezzy-transactions-section {
+        padding: 18px;
+    }
+
+    .ezzy-transactions-table th,
+    .ezzy-transactions-table td {
+        padding: 12px;
+    }
+
+    /* Avatar smaller */
+    .ezzy-user-avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+    .ezzy-others-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .ezzy-others-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (576px and below)
+   ============================================ */
+@media (max-width: 576px) {
+    /* Header compact */
+    .ezzy-header {
+        padding: 10px 12px;
+    }
+
+    /* Logo responsive sizing - BIGGER for mobile */
+    .ezzy-header-logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ezzy-header-logo-brand {
+        font-size: 18px;
+    }
+
+    .ezzy-header-logo-tagline {
+        font-size: 9px;
+        padding-left: 38px;
+        margin-top: -3px;
+    }
+
+    /* Crypto compact */
+    .ezzy-crypto-bar {
+        padding-top: 10px;
+        margin-top: 10px;
+        gap: 6px;
+    }
+
+    .ezzy-crypto-pill {
+        padding: 4px 8px 4px 4px;
+        font-size: 11px;
+    }
+
+    .ezzy-crypto-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+    }
+
+    /* Content */
+    .ezzy-content {
+        padding: 12px;
+    }
+
+    .ezzy-wallet-header {
+        padding: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .ezzy-wallet-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .ezzy-wallet-title {
+        font-size: 14px;
+    }
+
+    .ezzy-switch-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Balance */
+    .ezzy-balance-section {
+        padding: 14px;
+    }
+
+    .ezzy-balance-amount {
+        font-size: 26px;
+    }
+
+    .ezzy-balance-toggle {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ezzy-balance-toggle svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Action buttons stack */
+    .ezzy-balance-actions {
+        gap: 8px;
+    }
+
+    .ezzy-action-btn {
+        min-width: 100%;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    /* Transactions */
+    .ezzy-transactions-section {
+        padding: 14px;
+    }
+
+    .ezzy-transactions-title {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .ezzy-transactions-table table {
+        min-width: 300px;
+    }
+
+    .ezzy-transactions-table th,
+    .ezzy-transactions-table td {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    .ezzy-tx-type {
+        font-size: 12px;
+    }
+
+    .ezzy-tx-status {
+        padding: 3px 8px;
+        font-size: 10px;
+    }
+
+    /* Hide date column on mobile */
+    .ezzy-hide-mobile {
+        display: none;
+    }
+
+    /* User section compact */
+    .ezzy-user-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ezzy-user-signout {
+        font-size: 12px;
+    }
+
+    .ezzy-others-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Footer nav compact */
+    .ezzy-footer-nav {
+        height: 65px;
+    }
+
+    .ezzy-footer-item {
+        padding: 8px 6px;
+        min-width: 55px;
+    }
+
+    .ezzy-footer-item svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .ezzy-footer-item span {
+        font-size: 9px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - EXTRA SMALL (400px and below)
+   ============================================ */
+@media (max-width: 400px) {
+    /* Logo still visible and readable on extra small */
+    .ezzy-header-logo-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ezzy-header-logo-brand {
+        font-size: 16px;
+    }
+
+    .ezzy-header-logo-tagline {
+        font-size: 8px;
+        padding-left: 34px;
+    }
+
+    /* Crypto minimal */
+    .ezzy-crypto-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+    }
+
+    .ezzy-crypto-value {
+        font-size: 10px;
+    }
+
+    /* Balance */
+    .ezzy-balance-amount {
+        font-size: 24px;
+    }
+
+    /* Footer nav minimal */
+    .ezzy-footer-nav {
+        height: 60px;
+    }
+
+    .ezzy-footer-item {
+        min-width: 48px;
+        padding: 6px 4px;
+    }
+
+    .ezzy-footer-item svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .ezzy-footer-item span {
+        font-size: 8px;
+    }
+
+    /* Others buttons minimal */
+    .ezzy-others-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ezzy-others-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* ============================================
+   Notification Badge
+   ============================================ */
+.ezzy-notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 9px;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4);
+}
+
+/* Sidebar badge */
+.ezzy-nav-messages {
+    position: relative;
+}
+
+.ezzy-nav-messages .ezzy-notification-badge {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+
+/* Footer badge */
+.ezzy-footer-messages {
+    position: relative;
+}
+
+.ezzy-footer-messages .ezzy-notification-badge {
+    position: absolute;
+    top: 2px;
+    right: 50%;
+    transform: translateX(20px);
+}
+
+@media (max-width: 400px) {
+    .ezzy-footer-messages .ezzy-notification-badge {
+        min-width: 14px;
+        height: 14px;
+        font-size: 9px;
+        line-height: 14px;
+        padding: 0 3px;
+    }
+}
+
+/* ============================================
+   Content Panels System
+   ============================================ */
+.ezzy-panel {
+    display: none;
+}
+
+.ezzy-panel.active {
+    display: block;
+}
+
+.ezzy-panel-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--ezzy-line);
+}
+
+.ezzy-panel-title {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--ezzy-dark) !important;
+    margin: 0 0 4px 0 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.ezzy-panel-title svg {
+    width: 20px !important;
+    height: 20px !important;
+    color: var(--ezzy-primary) !important;
+}
+
+.ezzy-panel-subtitle {
+    font-size: 13px;
+    color: var(--ezzy-gray);
+}
+
+/* Loading State */
+.ezzy-loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--ezzy-line);
+    border-top-color: var(--ezzy-primary);
+    border-radius: 50%;
+    animation: ezzy-spin 0.8s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes ezzy-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Coming Soon */
+.ezzy-coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: var(--ezzy-gray);
+    font-size: 14px;
+}
+
+/* ============================================
+   Notifications List (Accordion Style)
+   ============================================ */
+.ezzy-notifications-list {
+    padding: 0;
+}
+
+.ezzy-notification-item {
+    border-bottom: 1px solid var(--ezzy-line);
+}
+
+.ezzy-notification-item:last-child {
+    border-bottom: none;
+}
+
+.ezzy-notification-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    gap: 12px;
+}
+
+.ezzy-notification-header:hover {
+    background: var(--ezzy-light);
+}
+
+.ezzy-notification-item.is-unread .ezzy-notification-header {
+    background: rgba(var(--ezzy-primary-rgb), 0.04);
+}
+
+.ezzy-notification-item.is-unread .ezzy-notification-header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--ezzy-primary);
+}
+
+.ezzy-notification-item {
+    position: relative;
+}
+
+.ezzy-notification-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ezzy-gray-light);
+    flex-shrink: 0;
+}
+
+.ezzy-notification-item.is-unread .ezzy-notification-dot {
+    background: var(--ezzy-primary);
+}
+
+.ezzy-notification-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ezzy-notification-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ezzy-notification-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-notification-type {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.ezzy-notification-type.type-info {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.ezzy-notification-type.type-success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.ezzy-notification-type.type-warning {
+    background: rgba(234, 179, 8, 0.1);
+    color: #ca8a04;
+}
+
+.ezzy-notification-type.type-alert {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.ezzy-notification-arrow {
+    width: 20px;
+    height: 20px;
+    color: var(--ezzy-gray-light);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ezzy-notification-item.is-expanded .ezzy-notification-arrow {
+    transform: rotate(180deg);
+}
+
+.ezzy-notification-body {
+    display: none;
+    padding: 0 24px 20px 44px;
+    animation: ezzy-slide-down 0.2s ease;
+}
+
+.ezzy-notification-item.is-expanded .ezzy-notification-body {
+    display: block;
+}
+
+@keyframes ezzy-slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ezzy-notification-message {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ezzy-gray);
+    margin: 0;
+    padding: 16px;
+    background: var(--ezzy-light);
+    border-radius: var(--ezzy-radius-sm);
+}
+
+/* No Notifications */
+.ezzy-no-notifications {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: var(--ezzy-gray);
+    text-align: center;
+}
+
+.ezzy-no-notifications svg {
+    width: 56px;
+    height: 56px;
+    opacity: 0.3;
+    margin-bottom: 16px;
+}
+
+.ezzy-no-notifications p {
+    margin: 0;
+    font-size: 15px;
+}
+
+/* ============================================
+   User Profile Panel
+   ============================================ */
+.ezzy-profile-panel {
+    background: var(--ezzy-white);
+    border-radius: var(--ezzy-radius);
+    box-shadow: var(--ezzy-shadow);
+    overflow: hidden;
+}
+
+.ezzy-profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 24px;
+    background: linear-gradient(135deg, var(--ezzy-primary) 0%, var(--ezzy-secondary) 100%);
+    color: var(--ezzy-white);
+    text-align: center;
+}
+
+.ezzy-profile-avatar {
+    position: relative;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.ezzy-profile-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+    transition: all var(--ezzy-transition);
+}
+
+.ezzy-profile-avatar:hover img {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.ezzy-profile-avatar.ezzy-avatar-loading img {
+    opacity: 0.5;
+}
+
+.ezzy-profile-avatar.ezzy-avatar-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: ezzy-avatar-spin 0.8s linear infinite;
+    z-index: 5;
+}
+
+.ezzy-avatar-edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--ezzy-white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--ezzy-transition);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ezzy-avatar-edit svg {
+    width: 16px;
+    height: 16px;
+    color: var(--ezzy-primary);
+}
+
+.ezzy-avatar-edit:hover {
+    transform: scale(1.1);
+    background: var(--ezzy-light);
+}
+
+.ezzy-profile-name h2 {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin: 0 0 4px 0 !important;
+    color: #ffffff !important;
+}
+
+.ezzy-profile-username {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.ezzy-profile-content {
+    padding: 24px;
+}
+
+/* Profile Messages */
+.ezzy-profile-message {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: var(--ezzy-radius-sm);
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ezzy-profile-message svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.ezzy-profile-success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.ezzy-profile-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+/* Profile Fields */
+.ezzy-profile-field {
+    border-bottom: 1px solid var(--ezzy-line);
+    padding: 16px 0;
+}
+
+.ezzy-profile-field:last-child {
+    border-bottom: none;
+}
+
+.ezzy-profile-field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.ezzy-profile-field-header label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ezzy-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ezzy-edit-btn {
+    background: none;
+    border: none;
+    color: var(--ezzy-primary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: var(--ezzy-transition);
+}
+
+.ezzy-edit-btn:hover {
+    background: rgba(var(--ezzy-primary-rgb), 0.1);
+}
+
+.ezzy-edit-btn.is-editing .ezzy-edit-text {
+    display: none;
+}
+
+.ezzy-edit-btn.is-editing .ezzy-cancel-text {
+    display: inline !important;
+    color: var(--ezzy-red);
+}
+
+.ezzy-profile-field-content {
+    position: relative;
+}
+
+.ezzy-profile-value {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ezzy-field-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--ezzy-light);
+    border-radius: var(--ezzy-radius-sm);
+    flex-shrink: 0;
+}
+
+.ezzy-field-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-field-text {
+    font-size: 15px;
+    color: var(--ezzy-dark);
+    font-weight: 500;
+    flex: 1;
+    word-break: break-word;
+}
+
+.ezzy-field-locked {
+    color: var(--ezzy-gray-light);
+}
+
+.ezzy-field-locked svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ezzy-password-dots {
+    letter-spacing: 2px;
+}
+
+/* Profile Edit Mode */
+.ezzy-profile-edit {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.ezzy-profile-edit input,
+.ezzy-profile-edit select,
+.ezzy-profile-edit textarea {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 14px;
+    border: 2px solid var(--ezzy-line);
+    border-radius: var(--ezzy-radius-sm);
+    background: var(--ezzy-white);
+    color: var(--ezzy-dark);
+    transition: var(--ezzy-transition);
+    font-family: inherit;
+}
+
+.ezzy-profile-edit input:focus,
+.ezzy-profile-edit select:focus,
+.ezzy-profile-edit textarea:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+    box-shadow: 0 0 0 3px rgba(var(--ezzy-primary-rgb), 0.1);
+}
+
+.ezzy-profile-edit textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.ezzy-save-field-btn {
+    padding: 12px 20px;
+    background: var(--ezzy-primary);
+    color: var(--ezzy-white);
+    border: none;
+    border-radius: var(--ezzy-radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--ezzy-transition);
+    white-space: nowrap;
+}
+
+.ezzy-save-field-btn:hover {
+    background: var(--ezzy-secondary);
+}
+
+.ezzy-save-field-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Password Edit Section */
+.ezzy-password-edit {
+    flex-direction: column;
+}
+
+.ezzy-password-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.ezzy-password-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ezzy-password-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-password-field input {
+    width: 100%;
+}
+
+.ezzy-password-hint {
+    font-size: 12px;
+    color: var(--ezzy-gray);
+    margin: 4px 0 0 0;
+    padding-left: 2px;
+}
+
+.ezzy-password-edit .ezzy-save-field-btn {
+    align-self: flex-start;
+}
+
+/* Field Saving State */
+.ezzy-profile-field.is-saving .ezzy-save-field-btn {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.ezzy-profile-field.is-saving .ezzy-save-field-btn::after {
+    content: '...';
+}
+
+/* Responsive Profile */
+@media screen and (max-width: 576px) {
+    .ezzy-profile-header {
+        padding: 24px 16px;
+    }
+    
+    .ezzy-profile-avatar img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .ezzy-profile-name h2 {
+        font-size: 18px;
+    }
+    
+    .ezzy-profile-content {
+        padding: 16px;
+    }
+    
+    .ezzy-profile-edit {
+        flex-direction: column;
+    }
+    
+    .ezzy-profile-edit input,
+    .ezzy-profile-edit select {
+        width: 100%;
+    }
+    
+    .ezzy-save-field-btn {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================================================
+   ALL TRANSACTIONS PANEL
+   ========================================================================== */
+
+.ezzy-transactions-panel {
+    padding: 0;
+}
+
+.ezzy-transactions-panel .ezzy-panel-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-transactions-panel .ezzy-panel-title {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--ezzy-dark) !important;
+    margin: 0 0 4px 0 !important;
+}
+
+.ezzy-transactions-panel .ezzy-panel-title svg {
+    width: 20px !important;
+    height: 20px !important;
+    color: var(--ezzy-primary) !important;
+}
+
+.ezzy-transactions-panel .ezzy-panel-subtitle {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+}
+
+/* Filters Bar */
+.ezzy-transactions-filters {
+    padding: 16px 24px;
+    background: var(--ezzy-light);
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-filter-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ezzy-total-transactions {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-gray);
+}
+
+/* Full Transactions Table */
+.ezzy-transactions-table-wrapper {
+    overflow-x: auto;
+}
+
+.ezzy-full-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ezzy-full-table thead {
+    background: var(--ezzy-light);
+}
+
+.ezzy-full-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ezzy-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-full-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--ezzy-border);
+    vertical-align: middle;
+}
+
+.ezzy-full-table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.ezzy-full-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Column widths */
+.ezzy-full-table .col-type {
+    width: 120px;
+}
+
+.ezzy-full-table .col-description {
+    width: auto;
+    min-width: 200px;
+}
+
+.ezzy-full-table .col-amount {
+    width: 140px;
+    text-align: right;
+}
+
+.ezzy-full-table .col-status {
+    width: 100px;
+    text-align: center;
+}
+
+.ezzy-full-table .col-date {
+    width: 140px;
+    text-align: right;
+}
+
+/* Transaction Type Badges in All Transactions - use same badge class */
+.ezzy-full-table .ezzy-tx-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+/* Deposit - Green */
+.ezzy-full-table .ezzy-tx-type.ezzy-type-deposit {
+    background: #dcfce7 !important;
+    color: #16a34a !important;
+}
+
+/* Withdrawal - Red */
+.ezzy-full-table .ezzy-tx-type.ezzy-type-withdrawal {
+    background: #fee2e2 !important;
+    color: #dc2626 !important;
+}
+
+/* Transfer - Blue */
+.ezzy-full-table .ezzy-tx-type.ezzy-type-transfer,
+.ezzy-full-table .ezzy-tx-type.ezzy-type-transfer_in {
+    background: #dbeafe !important;
+    color: #2563eb !important;
+}
+
+.ezzy-full-table .ezzy-tx-type.ezzy-type-transfer_out {
+    background: rgba(249, 115, 22, 0.1);
+    color: #ea580c;
+}
+
+.ezzy-type-admin_adjustment {
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
+}
+
+/* Description */
+.ezzy-tx-description {
+    font-size: 14px;
+    color: var(--ezzy-dark);
+    display: block;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Date & Time */
+.col-date {
+    white-space: nowrap;
+}
+
+.ezzy-tx-date {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+}
+
+.ezzy-tx-time {
+    display: block;
+    font-size: 12px;
+    color: var(--ezzy-gray);
+    margin-top: 2px;
+}
+
+/* Loading State */
+.ezzy-full-table .ezzy-loading-row td {
+    padding: 60px 20px;
+}
+
+.ezzy-loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.ezzy-loading-state .ezzy-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--ezzy-border);
+    border-top-color: var(--ezzy-primary);
+    border-radius: 50%;
+    animation: ezzy-spin 0.8s linear infinite;
+}
+
+.ezzy-loading-state p {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin: 0;
+}
+
+@keyframes ezzy-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Error State */
+.ezzy-error-cell {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.ezzy-error-cell p {
+    color: var(--ezzy-danger);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Empty State */
+.ezzy-empty-transactions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    text-align: center;
+}
+
+.ezzy-empty-transactions svg {
+    width: 64px;
+    height: 64px;
+    color: var(--ezzy-gray-light);
+    margin-bottom: 16px;
+}
+
+.ezzy-empty-transactions h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 8px 0;
+}
+
+.ezzy-empty-transactions p {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin: 0;
+    max-width: 300px;
+}
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
+.ezzy-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-top: 1px solid var(--ezzy-border);
+    background: var(--ezzy-light);
+}
+
+.ezzy-pagination-info {
+    flex-shrink: 0;
+}
+
+.ezzy-page-info {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    font-weight: 500;
+}
+
+.ezzy-pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ezzy-pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid var(--ezzy-border);
+    border-radius: var(--ezzy-radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ezzy-pagination-btn:hover:not(:disabled) {
+    background: var(--ezzy-primary);
+    border-color: var(--ezzy-primary);
+    color: white;
+}
+
+.ezzy-pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ezzy-pagination-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Page Numbers */
+.ezzy-page-numbers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ezzy-page-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    background: white;
+    border: 1px solid var(--ezzy-border);
+    border-radius: var(--ezzy-radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ezzy-page-number:hover {
+    background: var(--ezzy-light);
+    border-color: var(--ezzy-primary);
+    color: var(--ezzy-primary);
+}
+
+.ezzy-page-number.active {
+    background: var(--ezzy-primary);
+    border-color: var(--ezzy-primary);
+    color: white;
+}
+
+.ezzy-page-ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    font-size: 14px;
+    color: var(--ezzy-gray);
+}
+
+/* Responsive Pagination */
+@media (max-width: 768px) {
+    .ezzy-pagination {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+    
+    .ezzy-pagination-info {
+        order: 2;
+    }
+    
+    .ezzy-pagination-controls {
+        order: 1;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .ezzy-pagination-btn span {
+        display: none;
+    }
+    
+    .ezzy-pagination-btn {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ezzy-transactions-panel .ezzy-panel-header {
+        padding: 16px;
+    }
+    
+    .ezzy-transactions-filters {
+        padding: 12px 16px;
+    }
+    
+    .ezzy-full-table th,
+    .ezzy-full-table td {
+        padding: 12px 10px;
+    }
+    
+    .ezzy-full-table .col-description {
+        display: none;
+    }
+    
+    .ezzy-full-table .col-type {
+        width: auto;
+    }
+    
+    .ezzy-full-table .col-amount {
+        width: auto;
+    }
+    
+    .ezzy-full-table .col-date {
+        width: auto;
+    }
+    
+    .ezzy-tx-type {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+    
+    .ezzy-tx-amount {
+        font-size: 13px;
+    }
+    
+    .ezzy-page-numbers {
+        display: none;
+    }
+    
+    .ezzy-pagination-btn span {
+        display: inline;
+    }
+}
+
+/* ==========================================================================
+   PANEL HEADER WITH DELETE ALL BUTTON
+   ========================================================================== */
+
+.ezzy-panel-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+}
+
+.ezzy-panel-header-top .ezzy-panel-title {
+    margin: 0;
+}
+
+/* Delete All Button */
+.ezzy-delete-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: transparent;
+    border: 1px solid #fee2e2;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #dc2626;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ezzy-delete-all-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ezzy-delete-all-btn:hover {
+    background: #fee2e2;
+    border-color: #fecaca;
+}
+
+.ezzy-delete-all-btn:disabled,
+.ezzy-delete-all-btn.is-loading {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Messages Panel Specific */
+.ezzy-panel-messages .ezzy-panel-header {
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-messages-info {
+    margin-top: 8px;
+}
+
+.ezzy-total-messages {
+    font-size: 13px;
+    color: var(--ezzy-gray);
+    font-weight: 500;
+}
+
+/* Messages Pagination */
+.ezzy-messages-pagination {
+    border-top: 1px solid var(--ezzy-border);
+    background: var(--ezzy-light);
+}
+
+/* Empty Messages State */
+.ezzy-empty-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    text-align: center;
+}
+
+.ezzy-empty-messages svg {
+    width: 64px;
+    height: 64px;
+    color: var(--ezzy-gray-light);
+    margin-bottom: 16px;
+}
+
+.ezzy-empty-messages h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 8px 0;
+}
+
+.ezzy-empty-messages p {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin: 0;
+    max-width: 300px;
+}
+
+/* Notification Items Styling */
+.ezzy-notification-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--ezzy-border);
+    transition: background 0.2s ease;
+}
+
+.ezzy-notification-item:last-child {
+    border-bottom: none;
+}
+
+.ezzy-notification-item:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.ezzy-notification-item.is-unread {
+    background: rgba(var(--ezzy-primary-rgb), 0.03);
+}
+
+.ezzy-notification-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ezzy-light);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.ezzy-notification-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--ezzy-primary);
+}
+
+.ezzy-notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.ezzy-notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.ezzy-notification-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0;
+}
+
+.ezzy-notification-date {
+    font-size: 12px;
+    color: var(--ezzy-gray);
+    white-space: nowrap;
+}
+
+.ezzy-notification-message {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin: 8px 0 0 0;
+    line-height: 1.5;
+    padding: 12px 16px;
+    background: var(--ezzy-light);
+    border-radius: 8px;
+}
+
+/* Notification title row with arrow */
+.ezzy-notification-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ezzy-notification-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--ezzy-gray);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ezzy-notification-arrow.is-open {
+    transform: rotate(180deg);
+}
+
+/* Make header clickable */
+.ezzy-notification-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.ezzy-notification-header:hover .ezzy-notification-title {
+    color: var(--ezzy-primary);
+}
+
+.ezzy-notification-header:hover .ezzy-notification-arrow {
+    color: var(--ezzy-primary);
+}
+
+/* Unread indicator dot */
+.ezzy-notification-item.is-unread .ezzy-notification-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--ezzy-primary);
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+/* Error State */
+.ezzy-error-state {
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.ezzy-error-state p {
+    color: var(--ezzy-danger);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .ezzy-panel-header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .ezzy-delete-all-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .ezzy-notification-item {
+        padding: 12px 16px;
+    }
+    
+    .ezzy-notification-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
+
+/* ==========================================================================
+   ACCOUNT SETTINGS PANEL
+   ========================================================================== */
+
+.ezzy-settings-panel .ezzy-panel-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-settings-content {
+    padding: 0;
+}
+
+.ezzy-settings-section {
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-settings-section:last-child {
+    border-bottom: none;
+}
+
+.ezzy-settings-item {
+    padding: 0;
+}
+
+.ezzy-settings-item-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: default;
+}
+
+.ezzy-settings-item-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.ezzy-settings-item-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.ezzy-icon-security {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.ezzy-icon-password {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.ezzy-icon-danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.ezzy-settings-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ezzy-settings-item-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 4px 0;
+}
+
+.ezzy-settings-item-info p {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.ezzy-settings-item-action {
+    flex-shrink: 0;
+}
+
+/* Toggle Switch */
+.ezzy-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+}
+
+.ezzy-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ezzy-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: 0.3s;
+    border-radius: 28px;
+}
+
+.ezzy-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.ezzy-toggle-switch input:checked + .ezzy-toggle-slider {
+    background-color: var(--ezzy-primary);
+}
+
+.ezzy-toggle-switch input:checked + .ezzy-toggle-slider:before {
+    transform: translateX(24px);
+}
+
+/* Settings Arrow */
+.ezzy-settings-arrow {
+    width: 20px;
+    height: 20px;
+    color: var(--ezzy-gray);
+    transition: transform 0.2s ease;
+}
+
+.ezzy-settings-arrow.is-open {
+    transform: rotate(180deg);
+}
+
+#ezzy-password-toggle {
+    cursor: pointer;
+}
+
+#ezzy-password-toggle:hover {
+    background: rgba(0,0,0,0.02);
+}
+
+/* 2FA Setup Panel */
+.ezzy-2fa-setup {
+    padding: 0 24px 24px;
+    background: var(--ezzy-light);
+    border-top: 1px solid var(--ezzy-border);
+}
+
+.ezzy-2fa-steps {
+    padding-top: 20px;
+}
+
+.ezzy-2fa-step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.ezzy-2fa-step:last-child {
+    margin-bottom: 0;
+}
+
+.ezzy-step-number {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ezzy-primary);
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.ezzy-step-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 8px 0;
+}
+
+.ezzy-step-content p {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin: 0 0 12px 0;
+}
+
+.ezzy-qr-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: inline-block;
+    border: 1px solid var(--ezzy-border);
+}
+
+.ezzy-qr-image {
+    display: block;
+    width: 200px;
+    height: 200px;
+}
+
+.ezzy-secret-key {
+    margin-top: 16px;
+}
+
+.ezzy-secret-key p {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.ezzy-secret-key code {
+    display: inline-block;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border: 1px solid var(--ezzy-border);
+    margin-right: 8px;
+}
+
+.ezzy-copy-btn {
+    padding: 8px;
+    background: white;
+    border: 1px solid var(--ezzy-border);
+    border-radius: 6px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.ezzy-copy-btn svg {
+    width: 16px;
+    height: 16px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-copy-btn:hover {
+    background: var(--ezzy-light);
+}
+
+.ezzy-2fa-verify-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ezzy-2fa-input {
+    width: 140px;
+    padding: 12px 16px;
+    font-size: 18px;
+    letter-spacing: 8px;
+    text-align: center;
+    border: 2px solid var(--ezzy-border);
+    border-radius: 8px;
+    font-family: monospace;
+}
+
+.ezzy-2fa-input:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+}
+
+.ezzy-2fa-error {
+    color: var(--ezzy-danger);
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.ezzy-2fa-enabled {
+    padding: 16px 24px;
+    background: rgba(34, 197, 94, 0.05);
+    border-top: 1px solid var(--ezzy-border);
+}
+
+.ezzy-2fa-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.ezzy-2fa-status svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Password Form */
+.ezzy-password-form {
+    padding: 0 24px 24px;
+    background: var(--ezzy-light);
+    border-top: 1px solid var(--ezzy-border);
+}
+
+.ezzy-password-form .ezzy-form-group {
+    margin-top: 20px;
+}
+
+.ezzy-password-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+    margin-bottom: 8px;
+}
+
+.ezzy-password-input-wrapper {
+    position: relative;
+}
+
+.ezzy-password-input-wrapper .ezzy-input {
+    width: 100%;
+    padding-right: 48px;
+}
+
+.ezzy-password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.ezzy-password-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+    color: var(--ezzy-gray);
+}
+
+/* Password Requirements */
+.ezzy-password-requirements {
+    margin-top: 16px;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--ezzy-border);
+}
+
+.ezzy-requirements-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 12px 0;
+}
+
+.ezzy-requirements-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ezzy-requirements-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ezzy-gray);
+    padding: 4px 0;
+}
+
+.ezzy-req-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.ezzy-req-invalid .ezzy-req-icon {
+    color: #cbd5e1;
+}
+
+.ezzy-req-valid {
+    color: #16a34a;
+}
+
+.ezzy-req-valid .ezzy-req-icon {
+    color: #16a34a;
+}
+
+.ezzy-password-match {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.ezzy-password-match.is-success {
+    color: #16a34a;
+}
+
+.ezzy-password-match.is-error {
+    color: var(--ezzy-danger);
+}
+
+.ezzy-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.ezzy-password-message {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.ezzy-password-message.is-success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.ezzy-password-message.is-error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--ezzy-danger);
+}
+
+/* Danger Section */
+.ezzy-settings-danger {
+    background: rgba(239, 68, 68, 0.02);
+}
+
+.ezzy-btn-danger-outline {
+    background: transparent;
+    border: 1px solid #fee2e2;
+    color: #dc2626;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ezzy-btn-danger-outline:hover {
+    background: #fee2e2;
+    border-color: #fecaca;
+}
+
+/* Delete Modal */
+.ezzy-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.ezzy-modal {
+    background: white;
+    border-radius: 16px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.2s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.ezzy-modal-header {
+    padding: 24px 24px 16px;
+    text-align: center;
+}
+
+.ezzy-modal-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+}
+
+.ezzy-modal-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.ezzy-modal-icon-danger {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.ezzy-modal-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0;
+}
+
+.ezzy-modal-body {
+    padding: 0 24px 24px;
+}
+
+.ezzy-modal-body p {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin: 0 0 16px 0;
+    line-height: 1.6;
+}
+
+.ezzy-modal-body ul {
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+}
+
+.ezzy-modal-body li {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    margin-bottom: 8px;
+}
+
+.ezzy-modal-warning {
+    color: #dc2626 !important;
+    font-weight: 600;
+}
+
+.ezzy-modal-confirm-input {
+    margin-top: 20px;
+}
+
+.ezzy-modal-confirm-input label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+    margin-bottom: 8px;
+}
+
+.ezzy-modal-confirm-input input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid var(--ezzy-border);
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.ezzy-modal-confirm-input input:focus {
+    outline: none;
+    border-color: #dc2626;
+}
+
+.ezzy-modal-footer {
+    display: flex;
+    gap: 12px;
+    padding: 0 24px 24px;
+}
+
+.ezzy-modal-footer .ezzy-btn {
+    flex: 1;
+}
+
+.ezzy-btn-danger {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ezzy-btn-danger:hover {
+    background: #b91c1c;
+}
+
+.ezzy-btn-danger:disabled {
+    background: #fca5a5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   SUPPORT PANEL
+   ========================================================================== */
+
+.ezzy-support-panel .ezzy-panel-header {
+    padding: 24px;
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-support-content {
+    padding: 0;
+}
+
+.ezzy-support-section {
+    padding: 24px;
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-support-section:last-child {
+    border-bottom: none;
+}
+
+.ezzy-support-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 20px 0;
+}
+
+.ezzy-support-section-title svg {
+    width: 20px;
+    height: 20px;
+    color: var(--ezzy-primary);
+}
+
+/* FAQ Accordion */
+.ezzy-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ezzy-faq-item {
+    background: var(--ezzy-light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ezzy-faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ezzy-faq-question:hover {
+    background: rgba(0,0,0,0.02);
+}
+
+.ezzy-faq-question span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+}
+
+.ezzy-faq-question svg {
+    width: 18px;
+    height: 18px;
+    color: var(--ezzy-gray);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.ezzy-faq-item.is-open .ezzy-faq-question svg {
+    transform: rotate(180deg);
+}
+
+.ezzy-faq-answer {
+    display: none;
+    padding: 0 20px 16px;
+}
+
+.ezzy-faq-answer p {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Contact Cards */
+.ezzy-contact-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.ezzy-contact-card {
+    background: var(--ezzy-light);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.ezzy-contact-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.ezzy-contact-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--ezzy-primary);
+}
+
+.ezzy-contact-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin: 0 0 8px 0;
+}
+
+.ezzy-contact-card p {
+    font-size: 13px;
+    color: var(--ezzy-gray);
+    margin: 0 0 16px 0;
+}
+
+.ezzy-btn-outline {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid var(--ezzy-border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ezzy-btn-outline:hover {
+    background: var(--ezzy-primary);
+    border-color: var(--ezzy-primary);
+    color: white;
+}
+
+/* Account Info */
+.ezzy-account-info-card {
+    background: var(--ezzy-light);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.ezzy-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ezzy-border);
+}
+
+.ezzy-info-row:last-child {
+    border-bottom: none;
+}
+
+.ezzy-info-label {
+    font-size: 14px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-info-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .ezzy-settings-item-header {
+        flex-wrap: wrap;
+    }
+    
+    .ezzy-settings-item-info {
+        flex: 1 1 100%;
+        order: 2;
+        margin-top: 12px;
+    }
+    
+    .ezzy-settings-item-icon {
+        order: 1;
+    }
+    
+    .ezzy-settings-item-action {
+        order: 1;
+        margin-left: auto;
+    }
+    
+    .ezzy-2fa-verify-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .ezzy-2fa-input {
+        width: 100%;
+    }
+    
+    .ezzy-form-actions {
+        flex-direction: column;
+    }
+    
+    .ezzy-modal-footer {
+        flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   SUPPORT EMAIL MODAL
+   ========================================================================== */
+
+.ezzy-support-modal {
+    max-width: 480px;
+    width: calc(100% - 32px);
+    max-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.ezzy-support-modal .ezzy-modal-header {
+    position: relative;
+    padding: 16px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--ezzy-border);
+    flex-shrink: 0;
+}
+
+.ezzy-support-modal .ezzy-modal-header h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.ezzy-support-modal .ezzy-modal-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.ezzy-support-modal .ezzy-modal-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.ezzy-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.ezzy-modal-close svg {
+    width: 18px;
+    height: 18px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-modal-close:hover {
+    background: var(--ezzy-light);
+}
+
+.ezzy-modal-icon-primary {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--ezzy-primary);
+}
+
+.ezzy-support-modal .ezzy-modal-body {
+    padding: 16px 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Compact Form Grid */
+.ezzy-support-form-compact .ezzy-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.ezzy-support-form-compact .ezzy-form-group {
+    margin-bottom: 0;
+}
+
+.ezzy-support-form-compact label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ezzy-support-form-compact .ezzy-required {
+    color: var(--ezzy-danger);
+}
+
+.ezzy-input-sm {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 13px;
+    border: 1px solid var(--ezzy-border);
+    border-radius: 6px;
+    background: white;
+    transition: border-color 0.2s;
+}
+
+.ezzy-input-sm:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+}
+
+.ezzy-input-sm[readonly] {
+    background: var(--ezzy-light);
+    color: var(--ezzy-gray);
+    cursor: not-allowed;
+}
+
+.ezzy-support-form-compact .ezzy-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 28px;
+}
+
+.ezzy-form-message {
+    margin-top: 12px;
+}
+
+.ezzy-textarea-sm {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+    border: 1px solid var(--ezzy-border);
+    border-radius: 6px;
+    background: white;
+    resize: none;
+    height: 80px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.ezzy-textarea-sm:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+}
+
+.ezzy-char-count {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: var(--ezzy-gray);
+    margin-top: 2px;
+}
+
+.ezzy-char-count.is-over {
+    color: var(--ezzy-danger);
+    font-weight: 500;
+}
+
+.ezzy-support-message-result {
+    margin-top: 12px;
+}
+
+.ezzy-result-success,
+.ezzy-result-error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.ezzy-result-success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.ezzy-result-success svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.ezzy-result-error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--ezzy-danger);
+}
+
+.ezzy-support-modal .ezzy-modal-footer {
+    border-top: 1px solid var(--ezzy-border);
+    padding: 12px 20px;
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.ezzy-support-modal .ezzy-modal-footer .ezzy-btn {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide icons in support modal footer buttons */
+.ezzy-support-modal .ezzy-modal-footer .ezzy-btn svg {
+    display: none;
+}
+
+.ezzy-btn-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.ezzy-spinner-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Ticket Number Display */
+.ezzy-ticket-info {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--ezzy-light);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.ezzy-ticket-label {
+    display: block;
+    font-size: 11px;
+    color: var(--ezzy-gray);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ezzy-ticket-number {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ezzy-primary);
+    font-family: monospace;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    background: white;
+    border-radius: 6px;
+    border: 2px dashed var(--ezzy-primary);
+}
+
+.ezzy-ticket-note {
+    font-size: 11px;
+    color: var(--ezzy-gray);
+    margin: 8px 0 0 0;
+    line-height: 1.4;
+}
+
+/* Responsive for support modal */
+@media (max-width: 576px) {
+    .ezzy-support-modal {
+        width: calc(100% - 24px);
+        max-height: calc(100vh - 24px);
+        margin: 12px;
+    }
+    
+    .ezzy-support-modal .ezzy-modal-header {
+        padding: 12px 16px;
+    }
+    
+    .ezzy-support-modal .ezzy-modal-body {
+        padding: 12px 16px;
+    }
+    
+    .ezzy-support-form-compact .ezzy-form-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .ezzy-support-modal .ezzy-modal-footer {
+        padding: 10px 16px;
+    }
+    
+    .ezzy-ticket-info {
+        margin-top: 12px;
+        padding: 12px;
+    }
+    
+    .ezzy-ticket-number {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    
+    .ezzy-ticket-note {
+        font-size: 12px;
+    }
+}
+
+/* ==========================================================================
+   WALLET ACTION MODALS - DEPOSIT, WITHDRAW, TRANSFER (COMPACT)
+   ========================================================================== */
+
+.ezzy-action-modal {
+    max-width: 400px;
+    width: calc(100% - 32px);
+    max-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.ezzy-action-modal .ezzy-modal-header {
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--ezzy-border);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.ezzy-action-modal .ezzy-modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.ezzy-action-modal .ezzy-modal-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+}
+
+.ezzy-action-modal .ezzy-modal-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.ezzy-modal-icon-deposit {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.ezzy-modal-icon-withdraw {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+}
+
+.ezzy-modal-icon-transfer {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--ezzy-primary);
+}
+
+.ezzy-action-modal .ezzy-modal-body {
+    padding: 14px 16px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.ezzy-action-modal .ezzy-modal-footer {
+    padding: 12px 16px;
+    border-top: 1px solid var(--ezzy-border);
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.ezzy-action-modal .ezzy-modal-footer .ezzy-btn {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* Hide icons in modal footer buttons - keep text only */
+.ezzy-action-modal .ezzy-modal-footer .ezzy-btn svg {
+    display: none;
+}
+
+/* Available Balance Display */
+.ezzy-available-balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: var(--ezzy-light);
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+
+.ezzy-available-balance .ezzy-balance-label {
+    font-size: 12px;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-available-balance .ezzy-balance-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+}
+
+/* Wallet Form Compact */
+.ezzy-wallet-form .ezzy-form-group {
+    margin-bottom: 12px;
+}
+
+.ezzy-wallet-form .ezzy-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.ezzy-wallet-form .ezzy-form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.ezzy-wallet-form .ezzy-form-row-2col .ezzy-form-group {
+    margin-bottom: 0;
+}
+
+.ezzy-wallet-form label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ezzy-dark);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ezzy-wallet-form .ezzy-required {
+    color: var(--ezzy-danger);
+}
+
+.ezzy-wallet-form .ezzy-optional {
+    font-weight: 400;
+    color: var(--ezzy-gray);
+    font-size: 10px;
+    text-transform: none;
+}
+
+/* Amount Input Compact */
+.ezzy-amount-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ezzy-amount-prefix {
+    position: absolute;
+    left: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ezzy-gray);
+}
+
+.ezzy-amount-input input {
+    width: 100%;
+    padding: 10px 12px 10px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--ezzy-border);
+    border-radius: 8px;
+    background: white;
+    transition: border-color 0.2s;
+}
+
+.ezzy-amount-input input:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+}
+
+/* Method Options Compact */
+.ezzy-method-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.ezzy-method-options.ezzy-method-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.ezzy-method-option {
+    cursor: pointer;
+}
+
+.ezzy-method-option input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ezzy-method-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 6px;
+    border: 2px solid var(--ezzy-border);
+    border-radius: 8px;
+    transition: all 0.2s;
+    background: white;
+}
+
+.ezzy-method-option input:checked + .ezzy-method-card {
+    border-color: var(--ezzy-primary);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.ezzy-method-card:hover {
+    border-color: #cbd5e1;
+}
+
+.ezzy-method-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.ezzy-icon-bitcoin {
+    background: #f7931a;
+    color: white;
+}
+
+.ezzy-icon-paypal {
+    background: #003087;
+    color: white;
+}
+
+.ezzy-icon-cashapp {
+    background: #00d632;
+    color: white;
+}
+
+.ezzy-icon-bank {
+    background: #64748b;
+    font-size: 12px;
+}
+
+.ezzy-method-name {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--ezzy-dark);
+    text-align: center;
+}
+
+/* Form Inputs Compact */
+.ezzy-wallet-form input[type="text"],
+.ezzy-wallet-form input[type="email"],
+.ezzy-wallet-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+    border: 1px solid var(--ezzy-border);
+    border-radius: 8px;
+    background: white;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.ezzy-wallet-form input[type="text"]:focus,
+.ezzy-wallet-form input[type="email"]:focus,
+.ezzy-wallet-form textarea:focus {
+    outline: none;
+    border-color: var(--ezzy-primary);
+}
+
+.ezzy-wallet-form textarea {
+    resize: none;
+    height: 50px;
+}
+
+.ezzy-input-hint {
+    display: block;
+    font-size: 10px;
+    color: var(--ezzy-gray);
+    margin-top: 3px;
+}
+
+/* Modal Result Compact */
+.ezzy-modal-result {
+    margin-top: 12px;
+}
+
+.ezzy-modal-result .ezzy-result-success,
+.ezzy-modal-result .ezzy-result-error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.ezzy-modal-result .ezzy-result-success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.ezzy-modal-result .ezzy-result-error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--ezzy-danger);
+}
+
+.ezzy-modal-result svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Spinner */
+.ezzy-spinner-sm {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Responsive for wallet modals */
+@media (max-width: 480px) {
+    .ezzy-action-modal {
+        width: calc(100% - 24px);
+        max-height: calc(100vh - 24px);
+    }
+    
+    .ezzy-action-modal .ezzy-modal-header {
+        padding: 12px 14px;
+    }
+    
+    .ezzy-action-modal .ezzy-modal-body {
+        padding: 12px 14px;
+    }
+    
+    .ezzy-action-modal .ezzy-modal-footer {
+        padding: 10px 14px;
+    }
+    
+    .ezzy-method-options {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+    
+    .ezzy-method-options.ezzy-method-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .ezzy-method-card {
+        padding: 8px 4px;
+    }
+    
+    .ezzy-method-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+    
+    .ezzy-method-name {
+        font-size: 9px;
+    }
+    
+    /* FIX: Transfer form 2-col to single col on small mobile */
+    .ezzy-wallet-form .ezzy-form-row-2col {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* ==========================================================================
+   FIX: Currency Dropdown - Ensure proper display on all screen sizes
+   ========================================================================== */
+@media (max-width: 768px) {
+    .ezzy-currency-dropdown {
+        right: auto;
+        left: 0;
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ezzy-currency-switcher {
+        position: static;
+    }
+    
+    .ezzy-currency-dropdown {
+        position: fixed;
+        top: auto;
+        bottom: 80px;
+        left: 16px;
+        right: auto;
+        min-width: 120px;
+        z-index: 1000;
+        transform: none;
+    }
+    
+    .ezzy-currency-dropdown.is-open {
+        transform: none;
+    }
+}

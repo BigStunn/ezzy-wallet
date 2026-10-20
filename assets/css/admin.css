@@ -1,0 +1,1158 @@
+/**
+ * eZZY Wallet Admin Styles
+ *
+ * @package EzzyWallet
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   Admin Wrapper
+   ========================================================================== */
+
+.ezzy-wallet-admin-wrap {
+    max-width: 1400px;
+    margin: 20px 20px 20px 0;
+}
+
+.ezzy-wallet-admin-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d2327;
+    margin-bottom: 10px;
+}
+
+.ezzy-wallet-admin-title .dashicons {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+    color: #2563eb;
+}
+
+.ezzy-wallet-admin-header {
+    margin-bottom: 20px;
+}
+
+.ezzy-wallet-version {
+    color: #646970;
+    font-size: 13px;
+    margin: 0;
+}
+
+.ezzy-wallet-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #2563eb;
+    font-size: 14px;
+}
+
+.ezzy-wallet-back-link:hover {
+    color: #1d4ed8;
+}
+
+/* ==========================================================================
+   Navigation Tabs
+   ========================================================================== */
+
+.ezzy-wallet-tabs {
+    margin-bottom: 0;
+    border-bottom: 1px solid #c3c4c7;
+}
+
+.ezzy-wallet-tabs .nav-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    background: #f0f0f1;
+    border: 1px solid #c3c4c7;
+    border-bottom: none;
+    margin-left: 0;
+    margin-right: 4px;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.2s ease;
+}
+
+.ezzy-wallet-tabs .nav-tab:hover {
+    background: #ffffff;
+    color: #2563eb;
+}
+
+.ezzy-wallet-tabs .nav-tab-active {
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: -1px;
+    color: #2563eb;
+}
+
+.ezzy-wallet-tabs .nav-tab .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* ==========================================================================
+   Settings Content
+   ========================================================================== */
+
+.ezzy-wallet-settings-content {
+    background: #ffffff;
+    border: 1px solid #c3c4c7;
+    border-top: none;
+    padding: 25px 30px;
+    border-radius: 0 0 4px 4px;
+}
+
+.ezzy-wallet-settings-form h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d2327;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e4e7;
+    margin-bottom: 20px;
+}
+
+.ezzy-wallet-settings-form table.form-table {
+    margin-top: 0;
+}
+
+.ezzy-wallet-settings-form table.form-table th {
+    padding: 15px 10px 15px 0;
+    width: 220px;
+    font-weight: 500;
+}
+
+.ezzy-wallet-settings-form table.form-table td {
+    padding: 15px 10px;
+}
+
+.ezzy-wallet-settings-form table.form-table td p.description {
+    margin-top: 8px;
+    color: #646970;
+    font-size: 13px;
+}
+
+.ezzy-wallet-settings-form input[type="email"],
+.ezzy-wallet-settings-form input[type="text"],
+.ezzy-wallet-settings-form select {
+    min-width: 300px;
+}
+
+/* ==========================================================================
+   Toggle Switch (Maintenance Mode)
+   ========================================================================== */
+
+.ezzy-wallet-maintenance-toggle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ezzy-wallet-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+}
+
+.ezzy-wallet-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ezzy-wallet-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 32px;
+}
+
+.ezzy-wallet-slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ezzy-wallet-switch input:checked + .ezzy-wallet-slider {
+    background-color: #dc2626;
+}
+
+.ezzy-wallet-switch input:checked + .ezzy-wallet-slider:before {
+    transform: translateX(28px);
+}
+
+.ezzy-wallet-toggle-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ezzy-wallet-toggle-label .status-active {
+    color: #dc2626;
+}
+
+.ezzy-wallet-toggle-label .status-inactive {
+    color: #16a34a;
+}
+
+/* ==========================================================================
+   Maintenance Preview
+   ========================================================================== */
+
+.ezzy-wallet-maintenance-preview {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e4e7;
+}
+
+.ezzy-wallet-maintenance-preview h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #1d2327;
+}
+
+.maintenance-message-box {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #dc2626;
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: #991b1b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.maintenance-message-box .dashicons {
+    color: #dc2626;
+}
+
+/* ==========================================================================
+   Maintenance Status Banner
+   ========================================================================== */
+
+.ezzy-wallet-maintenance-status {
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.ezzy-wallet-maintenance-status .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ezzy-wallet-maintenance-status .dashicons {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.ezzy-wallet-maintenance-status .status-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.ezzy-wallet-maintenance-status.status-operational {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+}
+
+.ezzy-wallet-maintenance-status.status-operational .dashicons {
+    color: #16a34a;
+}
+
+.ezzy-wallet-maintenance-status.status-operational .status-text {
+    color: #166534;
+}
+
+.ezzy-wallet-maintenance-status.status-maintenance {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+.ezzy-wallet-maintenance-status.status-maintenance .dashicons {
+    color: #dc2626;
+}
+
+.ezzy-wallet-maintenance-status.status-maintenance .status-text {
+    color: #991b1b;
+}
+
+/* ==========================================================================
+   Maintenance Info Box
+   ========================================================================== */
+
+.ezzy-wallet-maintenance-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+.ezzy-wallet-maintenance-info h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #1d2327;
+}
+
+.ezzy-wallet-maintenance-info ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ezzy-wallet-maintenance-info li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #374151;
+}
+
+.ezzy-wallet-maintenance-info li .dashicons-no {
+    color: #dc2626;
+}
+
+.ezzy-wallet-maintenance-info li .dashicons-yes {
+    color: #16a34a;
+}
+
+/* ==========================================================================
+   Theme Settings
+   ========================================================================== */
+
+.ezzy-wallet-theme-info {
+    margin-bottom: 20px;
+}
+
+.ezzy-wallet-theme-info .notice {
+    margin: 0;
+}
+
+.ezzy-wallet-theme-info .notice p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ezzy-wallet-theme-form .form-table td {
+    padding: 12px 10px;
+}
+
+/* ==========================================================================
+   Theme Preview Card
+   ========================================================================== */
+
+.ezzy-wallet-theme-preview {
+    margin: 30px 0;
+    padding-top: 25px;
+    border-top: 1px solid #e2e4e7;
+}
+
+.ezzy-wallet-theme-preview h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1d2327;
+}
+
+.preview-card {
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.preview-header {
+    padding: 15px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.preview-body {
+    padding: 20px;
+}
+
+.preview-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.preview-form input {
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.preview-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* ==========================================================================
+   Color Picker Adjustments
+   ========================================================================== */
+
+.wp-picker-container {
+    display: inline-block;
+}
+
+.wp-picker-container .wp-color-result.button {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Wallet Users Summary Cards
+   ========================================================================== */
+
+.ezzy-wallet-users-summary {
+    margin-bottom: 25px;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.summary-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.summary-card .summary-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: #2563eb;
+    background: #eff6ff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.summary-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.summary-label {
+    font-size: 13px;
+    color: #646970;
+}
+
+/* ==========================================================================
+   Wallet Users Table
+   ========================================================================== */
+
+.ezzy-wallet-users-content .wp-list-table {
+    margin-top: 20px;
+}
+
+.ezzy-wallet-users-content .wp-list-table th {
+    font-weight: 600;
+}
+
+.ezzy-wallet-users-content .wp-list-table .column-user_id {
+    width: 80px;
+}
+
+.ezzy-wallet-users-content .wp-list-table .column-actions {
+    width: 100px;
+}
+
+.ezzy-wallet-users-content .wp-list-table .column-withdrawals_disabled {
+    width: 150px;
+}
+
+.ezzy-currency {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+.ezzy-status {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ezzy-status-enabled {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.ezzy-status-disabled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ==========================================================================
+   Edit Wallet Form
+   ========================================================================== */
+
+.ezzy-wallet-edit-content {
+    padding: 30px;
+}
+
+.ezzy-wallet-edit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+}
+
+.ezzy-wallet-edit-section {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.ezzy-wallet-edit-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.ezzy-wallet-edit-section h2 .dashicons {
+    color: #2563eb;
+}
+
+/* User Info Card */
+.user-info-card {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.user-avatar img {
+    border-radius: 50%;
+    border: 3px solid #e2e8f0;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-info-table th {
+    text-align: left;
+    font-weight: 500;
+    color: #64748b;
+    padding: 8px 10px 8px 0;
+    width: 120px;
+    font-size: 13px;
+}
+
+.user-info-table td {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #1d2327;
+}
+
+.user-info-table a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.user-info-table a:hover {
+    text-decoration: underline;
+}
+
+.edit-user-link {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.edit-user-link .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+.account-timestamps {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.account-timestamps p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Wallet Edit Form */
+.ezzy-wallet-form-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ezzy-wallet-form-table th {
+    text-align: left;
+    font-weight: 500;
+    padding: 15px 0;
+    vertical-align: top;
+    width: 180px;
+}
+
+.ezzy-wallet-form-table td {
+    padding: 15px 0;
+}
+
+.currency-input-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+}
+
+.currency-symbol {
+    background: #e2e8f0;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.currency-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.currency-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Toggle for Edit Form */
+.ezzy-wallet-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.ezzy-wallet-toggle-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.ezzy-toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background: #cbd5e1;
+    border-radius: 26px;
+    transition: 0.3s;
+}
+
+.ezzy-toggle-switch:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ezzy-wallet-toggle-wrapper input:checked + .ezzy-toggle-switch {
+    background: #dc2626;
+}
+
+.ezzy-wallet-toggle-wrapper input:checked + .ezzy-toggle-switch:before {
+    transform: translateX(24px);
+}
+
+.ezzy-toggle-label {
+    font-size: 14px;
+    color: #374151;
+}
+
+.withdrawal-warning {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 4px;
+    color: #991b1b;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.withdrawal-warning .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Edit Actions */
+.ezzy-wallet-edit-actions {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 10px;
+}
+
+.ezzy-wallet-edit-actions .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ezzy-wallet-edit-actions .button .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.ezzy-wallet-edit-notice {
+    margin-top: 20px;
+    padding: 12px 15px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 4px;
+    color: #1e40af;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ezzy-wallet-edit-notice .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.ezzy-wallet-admin-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e4e7;
+    text-align: center;
+}
+
+.ezzy-wallet-admin-footer p {
+    color: #646970;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+    .ezzy-wallet-edit-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .ezzy-wallet-admin-wrap {
+        margin-right: 10px;
+    }
+
+    .ezzy-wallet-settings-content {
+        padding: 15px 20px;
+    }
+
+    .ezzy-wallet-settings-form table.form-table th {
+        width: auto;
+        padding-bottom: 5px;
+    }
+
+    .ezzy-wallet-settings-form input[type="email"],
+    .ezzy-wallet-settings-form input[type="text"],
+    .ezzy-wallet-settings-form select {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .ezzy-wallet-tabs .nav-tab {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .ezzy-wallet-tabs .nav-tab .dashicons {
+        display: none;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .user-info-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .user-info-table th {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Withdrawal Permission Styles
+   ========================================================================== */
+
+.withdrawal-warning {
+    background: #fff3cd;
+    border-left: 4px solid #f0ad4e;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 0 4px 4px 0;
+    color: #856404;
+}
+
+.withdrawal-warning .dashicons {
+    color: #f0ad4e;
+    margin-right: 5px;
+}
+
+.withdrawal-enabled {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 0 4px 4px 0;
+    color: #155724;
+}
+
+.withdrawal-enabled .dashicons {
+    color: #28a745;
+    margin-right: 5px;
+}
+
+.ezzy-wallet-select {
+    min-width: 300px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    background: #fff;
+}
+
+/* ==========================================================================
+   User Information Enhanced Styles
+   ========================================================================== */
+
+.user-info-table th {
+    width: 140px;
+    padding: 10px 15px 10px 0;
+    vertical-align: top;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.user-info-table td {
+    padding: 10px 0;
+    color: #50575e;
+}
+
+.ezzy-not-set {
+    color: #a7aaad;
+    font-style: italic;
+}
+
+.ezzy-dob-age {
+    color: #646970;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.ezzy-country-code {
+    color: #646970;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.ezzy-terms-accepted {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #00a32a;
+    font-weight: 500;
+}
+
+.ezzy-terms-accepted .dashicons {
+    color: #00a32a;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.ezzy-password-masked {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #1d2327;
+}
+
+.ezzy-password-info {
+    color: #646970;
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 8px;
+}
+
+/* ==========================================================================
+   Skin Theme Selector
+   ========================================================================== */
+
+.ezzy-skin-theme-selector {
+    max-width: 100%;
+}
+
+.ezzy-skin-theme-selector .ezzy-skin-select {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.ezzy-skin-theme-selector .description {
+    margin-top: 8px;
+    color: #646970;
+}
+
+.ezzy-skin-previews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.ezzy-skin-preview-card {
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.ezzy-skin-preview-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.ezzy-skin-preview-card.active {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.ezzy-skin-preview-card .preview-header {
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.ezzy-skin-preview-card .preview-colors {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px;
+}
+
+.ezzy-skin-preview-card .color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Theme Preview Update */
+.ezzy-wallet-theme-preview {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f6f7f7;
+    border-radius: 8px;
+}
+
+.ezzy-wallet-theme-preview h3 {
+    margin: 0 0 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#ezzy-wallet-preview-card {
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#ezzy-wallet-preview-card .preview-header {
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+#ezzy-wallet-preview-card .preview-body {
+    padding: 20px;
+}
+
+#ezzy-wallet-preview-card .preview-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#ezzy-wallet-preview-card .preview-form input {
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#ezzy-wallet-preview-card .preview-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+#ezzy-wallet-preview-card .preview-button:hover {
+    opacity: 0.9;
+}
+
+
+/* ==========================================================================
+   License Timer Styles
+   ========================================================================== */
+
+.ezzy-license-timer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0f9ff;
+    color: #0369a1;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.ezzy-license-timer .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.ezzy-license-timer .timer-label {
+    margin-right: 4px;
+}
+
+.ezzy-license-timer .days,
+.ezzy-license-timer .hours,
+.ezzy-license-timer .minutes,
+.ezzy-license-timer .seconds {
+    font-family: monospace;
+    font-weight: 600;
+}
+
+.ezzy-license-timer.ezzy-license-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.ezzy-license-timer.ezzy-license-unlimited {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.ezzy-license-timer.ezzy-license-unlimited .dashicons {
+    color: #10b981;
+}

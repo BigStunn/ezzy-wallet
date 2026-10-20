@@ -1,48 +1,60 @@
-# eZZY Wallet
+# eZZY Wallet by Big Stunnz
 
-**A custom WordPress manual wallet management plugin for account registration, deposits, withdrawals, and administrative transaction processing.**
+A professional digital wallet and financial management system for Banks, Fintech platforms, Refund portals, Investment sites, Membership platforms, E-commerce stores, and more. Features include deposits, withdrawals, transfers, multi-currency support, transaction history, and a beautiful responsive dashboard.
 
-## Overview
+## Version
+1.0.0 (Stable)
 
-eZZY Wallet is a custom WordPress plugin developed to provide a manual digital wallet system. It allows users to create accounts, submit deposit requests using their preferred payment method, maintain wallet balances, and request withdrawals.
+## Features
+- 💰 **Digital Wallet System** - Full wallet functionality with deposits, withdrawals, and transfers
+- 🏦 **Multi-Purpose** - Perfect for Banks, Fintech, Refunds, Investments, Memberships, E-commerce
+- 💱 **Multi-Currency Support** - Support for multiple currencies worldwide
+- 📊 **Transaction History** - Complete transaction tracking and history
+- 🎨 **10 Premium Themes** - Beautiful customizable dashboard skins
+- 📱 **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+- 🔐 **Secure** - Built with WordPress security best practices
+- 👤 **User Profiles** - Profile management with avatar uploads
+- 🔔 **Notifications** - Real-time notification system
+- ⚙️ **Admin Controls** - Full admin dashboard for managing users and transactions
+- 🛡️ **License Protection** - Built-in activation code system
 
-Unlike an automated payment gateway, eZZY Wallet uses a manual payment verification workflow. The administrator provides the relevant payment account details, verifies incoming payments, and updates user wallet balances accordingly.
+## Requirements
+- PHP 8.0 or higher
+- WordPress 5.8 or higher
+- MySQL 5.6 or higher
 
-## Key Features
+## Installation
+1. Upload the `ezzy-wallet` folder to `/wp-content/plugins/`
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Enter your activation code to unlock the plugin
+4. Database tables will be created automatically on activation
+5. Add `[ezzy_wallet]` shortcode to any page to display the wallet
 
-- **User account registration:** Allows users to create accounts and submit their information.
-- **Deposit requests:** Users can submit deposit requests and specify the amount they wish to add to their wallet.
-- **Multiple payment methods:** Supports configurable payment options, potentially including PayPal, Bitcoin, and other methods accepted by the administrator.
-- **Manual payment processing:** Payments are completed outside the automated wallet workflow, with the administrator handling payment instructions and verification.
-- **Wallet balance management:** Enables users to maintain funds in their wallet accounts.
-- **Withdrawal requests:** Allows users to request withdrawals from their wallet balances.
-- **Administrative management:** Provides an admin-managed process for reviewing transactions and updating wallet balances.
+## Use Cases
+- **Banks & Credit Unions** - Customer account management
+- **Fintech Startups** - Digital wallet platforms
+- **Refund Portals** - Managing customer refunds/credits
+- **Investment Platforms** - User balance management
+- **Membership Sites** - Credit/points systems
+- **E-commerce Stores** - Store credit & wallet payments
+- **Freelance Platforms** - Escrow-style payment holding
+- **Gaming Sites** - In-game currency management
+- **Affiliate Programs** - Commission payouts
+- **Crowdfunding** - Pledge management
 
-## Technologies
+## Database Tables
 
-- WordPress
-- PHP
-- Database-backed user and wallet data management
-- Custom WordPress plugin development
+### wp_ezzy_wallet_accounts
+Stores user wallet account information including balances and totals.
 
-## Payment Workflow
+### wp_ezzy_wallet_transactions
+Stores all wallet transactions with type, amount, and status tracking.
 
-1. A user registers for an account.
-2. The user submits a deposit request, specifying the amount and preferred payment method.
-3. The administrator provides the relevant payment account details.
-4. The user makes the payment outside the automated wallet workflow.
-5. The administrator verifies the payment and updates the user's wallet balance.
+### wp_ezzy_wallet_notifications
+Stores user notifications and alerts.
 
-## Project Purpose
+## Author
+Big Stunnz - https://bigstunnz.com
 
-eZZY Wallet was developed to provide a flexible manual wallet system for websites that need account balances, deposit requests, and withdrawals without requiring every payment to be processed automatically through a payment gateway.
-
-## Developer
-
-Bryant Macwhite Akonjang
-
-WordPress Developer | Custom Plugin Development
-
-## Important Notes
-
-eZZY Wallet manages a manual payment workflow. Selecting a payment method does not itself process or verify a payment automatically. Actual payment verification and wallet balance updates depend on the administrator's workflow and the plugin's implemented functionality.
+## License
+GPL v2 or later
